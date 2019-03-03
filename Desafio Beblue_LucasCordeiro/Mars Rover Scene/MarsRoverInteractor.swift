@@ -12,29 +12,25 @@
 
 import UIKit
 
-protocol MarsRoverBusinessLogic
-{
+protocol MarsRoverBusinessLogic {
   func doSomething(request: MarsRover.Something.Request)
 }
 
-protocol MarsRoverDataStore
-{
+protocol MarsRoverDataStore {
   //var name: String { get set }
 }
 
-class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore
-{
+class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
   var presenter: MarsRoverPresentationLogic?
   var worker: MarsRoverWorker?
   //var name: String = ""
-  
+
   // MARK: Do something
-  
-  func doSomething(request: MarsRover.Something.Request)
-  {
+
+  func doSomething(request: MarsRover.Something.Request) {
     worker = MarsRoverWorker()
     worker?.doSomeWork()
-    
+
     let response = MarsRover.Something.Response()
     presenter?.presentSomething(response: response)
   }

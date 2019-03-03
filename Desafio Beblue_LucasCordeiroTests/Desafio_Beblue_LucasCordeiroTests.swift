@@ -9,7 +9,7 @@
 import XCTest
 @testable import Desafio_Beblue_LucasCordeiro
 
-class Desafio_Beblue_LucasCordeiroTests: XCTestCase {
+class LucasCordeiroTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

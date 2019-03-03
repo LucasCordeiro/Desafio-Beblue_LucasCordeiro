@@ -12,19 +12,16 @@
 
 import UIKit
 
-protocol MarsRoverPresentationLogic
-{
+protocol MarsRoverPresentationLogic {
   func presentSomething(response: MarsRover.Something.Response)
 }
 
-class MarsRoverPresenter: MarsRoverPresentationLogic
-{
+class MarsRoverPresenter: MarsRoverPresentationLogic {
   weak var viewController: MarsRoverDisplayLogic?
-  
+
   // MARK: Do something
-  
-  func presentSomething(response: MarsRover.Something.Response)
-  {
+
+  func presentSomething(response: MarsRover.Something.Response) {
     let viewModel = MarsRover.Something.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
   }

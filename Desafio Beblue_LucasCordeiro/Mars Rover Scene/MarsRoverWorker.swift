@@ -12,9 +12,7 @@
 
 import UIKit
 
-class MarsRoverWorker
-{
-  func doSomeWork()
-  {
+class MarsRoverWorker {
+  func doSomeWork() {
   }
 }
