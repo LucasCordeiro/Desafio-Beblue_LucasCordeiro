@@ -1,0 +1,6 @@
+framework module Pods_Desafio_Beblue_LucasCordeiro {
+  umbrella header "Pods-Desafio Beblue_LucasCordeiro-umbrella.h"
+
+  export *
+  module * { export * }
+}

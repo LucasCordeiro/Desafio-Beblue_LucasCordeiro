@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		263C3415645C5C05BDCB5AB8 /* Pods_Desafio_Beblue_LucasCordeiro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CCE88E3DF16772812B31C3 /* Pods_Desafio_Beblue_LucasCordeiro.framework */; };
 		AE3FD689222C7C9B0037C51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD688222C7C9B0037C51C /* AppDelegate.swift */; };
-		AE3FD68B222C7C9B0037C51C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD68A222C7C9B0037C51C /* ViewController.swift */; };
-		AE3FD68E222C7C9B0037C51C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3FD68C222C7C9B0037C51C /* Main.storyboard */; };
 		AE3FD690222C7C9C0037C51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3FD68F222C7C9C0037C51C /* Assets.xcassets */; };
 		AE3FD693222C7C9C0037C51C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3FD691222C7C9C0037C51C /* LaunchScreen.storyboard */; };
 		AE3FD69E222C7C9C0037C51C /* Desafio_Beblue_LucasCordeiroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD69D222C7C9C0037C51C /* Desafio_Beblue_LucasCordeiroTests.swift */; };
+		AE3FD6BE222C83CA0037C51C /* MarsRoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD6B8222C83CA0037C51C /* MarsRoverPresenter.swift */; };
+		AE3FD6BF222C83CA0037C51C /* MarsRoverWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD6B9222C83CA0037C51C /* MarsRoverWorker.swift */; };
+		AE3FD6C0222C83CA0037C51C /* MarsRoverRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD6BA222C83CA0037C51C /* MarsRoverRouter.swift */; };
+		AE3FD6C1222C83CA0037C51C /* MarsRoverModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD6BB222C83CA0037C51C /* MarsRoverModels.swift */; };
+		AE3FD6C2222C83CA0037C51C /* MarsRoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD6BC222C83CA0037C51C /* MarsRoverViewController.swift */; };
+		AE3FD6C3222C83CA0037C51C /* MarsRoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD6BD222C83CA0037C51C /* MarsRoverInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +31,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E621486047E0416E5804EED /* Pods-Desafio Beblue_LucasCordeiro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desafio Beblue_LucasCordeiro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Desafio Beblue_LucasCordeiro/Pods-Desafio Beblue_LucasCordeiro.debug.xcconfig"; sourceTree = "<group>"; };
 		AE3FD685222C7C9B0037C51C /* Desafio Beblue_LucasCordeiro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desafio Beblue_LucasCordeiro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3FD688222C7C9B0037C51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE3FD68A222C7C9B0037C51C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE3FD68D222C7C9B0037C51C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE3FD68F222C7C9C0037C51C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE3FD692222C7C9C0037C51C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE3FD694222C7C9C0037C51C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE3FD699222C7C9C0037C51C /* Desafio Beblue_LucasCordeiroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Desafio Beblue_LucasCordeiroTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3FD69D222C7C9C0037C51C /* Desafio_Beblue_LucasCordeiroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desafio_Beblue_LucasCordeiroTests.swift; sourceTree = "<group>"; };
 		AE3FD69F222C7C9C0037C51C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE3FD6B8222C83CA0037C51C /* MarsRoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverPresenter.swift; sourceTree = "<group>"; };
+		AE3FD6B9222C83CA0037C51C /* MarsRoverWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverWorker.swift; sourceTree = "<group>"; };
+		AE3FD6BA222C83CA0037C51C /* MarsRoverRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverRouter.swift; sourceTree = "<group>"; };
+		AE3FD6BB222C83CA0037C51C /* MarsRoverModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverModels.swift; sourceTree = "<group>"; };
+		AE3FD6BC222C83CA0037C51C /* MarsRoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverViewController.swift; sourceTree = "<group>"; };
+		AE3FD6BD222C83CA0037C51C /* MarsRoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverInteractor.swift; sourceTree = "<group>"; };
+		BC8F00934DAA6A5225626261 /* Pods-Desafio Beblue_LucasCordeiro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desafio Beblue_LucasCordeiro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Desafio Beblue_LucasCordeiro/Pods-Desafio Beblue_LucasCordeiro.release.xcconfig"; sourceTree = "<group>"; };
+		F2CCE88E3DF16772812B31C3 /* Pods_Desafio_Beblue_LucasCordeiro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Desafio_Beblue_LucasCordeiro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				263C3415645C5C05BDCB5AB8 /* Pods_Desafio_Beblue_LucasCordeiro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B91AC855247108EC105A85F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2CCE88E3DF16772812B31C3 /* Pods_Desafio_Beblue_LucasCordeiro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE3FD67C222C7C9B0037C51C = {
 			isa = PBXGroup;
 			children = (
 				AE3FD687222C7C9B0037C51C /* Desafio Beblue_LucasCordeiro */,
 				AE3FD69C222C7C9C0037C51C /* Desafio Beblue_LucasCordeiroTests */,
 				AE3FD686222C7C9B0037C51C /* Products */,
+				FECC75D1C1A598D5BE552381 /* Pods */,
+				1B91AC855247108EC105A85F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +100,8 @@
 		AE3FD687222C7C9B0037C51C /* Desafio Beblue_LucasCordeiro */ = {
 			isa = PBXGroup;
 			children = (
-				AE3FD688222C7C9B0037C51C /* AppDelegate.swift */,
-				AE3FD68A222C7C9B0037C51C /* ViewController.swift */,
-				AE3FD68C222C7C9B0037C51C /* Main.storyboard */,
-				AE3FD68F222C7C9C0037C51C /* Assets.xcassets */,
-				AE3FD691222C7C9C0037C51C /* LaunchScreen.storyboard */,
-				AE3FD694222C7C9C0037C51C /* Info.plist */,
+				AE3FD6A9222C80E70037C51C /* Mars Rover Scene */,
+				AE3FD6A8222C80D50037C51C /* Supporting Files */,
 			);
 			path = "Desafio Beblue_LucasCordeiro";
 			sourceTree = "<group>";
@@ -96,6 +115,39 @@
 			path = "Desafio Beblue_LucasCordeiroTests";
 			sourceTree = "<group>";
 		};
+		AE3FD6A8222C80D50037C51C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE3FD688222C7C9B0037C51C /* AppDelegate.swift */,
+				AE3FD68F222C7C9C0037C51C /* Assets.xcassets */,
+				AE3FD691222C7C9C0037C51C /* LaunchScreen.storyboard */,
+				AE3FD694222C7C9C0037C51C /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE3FD6A9222C80E70037C51C /* Mars Rover Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AE3FD6BC222C83CA0037C51C /* MarsRoverViewController.swift */,
+				AE3FD6BD222C83CA0037C51C /* MarsRoverInteractor.swift */,
+				AE3FD6B8222C83CA0037C51C /* MarsRoverPresenter.swift */,
+				AE3FD6B9222C83CA0037C51C /* MarsRoverWorker.swift */,
+				AE3FD6BA222C83CA0037C51C /* MarsRoverRouter.swift */,
+				AE3FD6BB222C83CA0037C51C /* MarsRoverModels.swift */,
+			);
+			path = "Mars Rover Scene";
+			sourceTree = "<group>";
+		};
+		FECC75D1C1A598D5BE552381 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E621486047E0416E5804EED /* Pods-Desafio Beblue_LucasCordeiro.debug.xcconfig */,
+				BC8F00934DAA6A5225626261 /* Pods-Desafio Beblue_LucasCordeiro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE3FD6A2222C7C9C0037C51C /* Build configuration list for PBXNativeTarget "Desafio Beblue_LucasCordeiro" */;
 			buildPhases = (
+				58515E388E36D643EE4C81F6 /* [CP] Check Pods Manifest.lock */,
 				AE3FD681222C7C9B0037C51C /* Sources */,
 				AE3FD682222C7C9B0037C51C /* Frameworks */,
 				AE3FD683222C7C9B0037C51C /* Resources */,
+				1421E2ECEAA6805684B67860 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,7 +233,6 @@
 			files = (
 				AE3FD693222C7C9C0037C51C /* LaunchScreen.storyboard in Resources */,
 				AE3FD690222C7C9C0037C51C /* Assets.xcassets in Resources */,
-				AE3FD68E222C7C9B0037C51C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,13 +245,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1421E2ECEAA6805684B67860 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Desafio Beblue_LucasCordeiro/Pods-Desafio Beblue_LucasCordeiro-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Desafio Beblue_LucasCordeiro/Pods-Desafio Beblue_LucasCordeiro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58515E388E36D643EE4C81F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Desafio Beblue_LucasCordeiro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AE3FD681222C7C9B0037C51C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE3FD68B222C7C9B0037C51C /* ViewController.swift in Sources */,
+				AE3FD6C2222C83CA0037C51C /* MarsRoverViewController.swift in Sources */,
+				AE3FD6BE222C83CA0037C51C /* MarsRoverPresenter.swift in Sources */,
+				AE3FD6C1222C83CA0037C51C /* MarsRoverModels.swift in Sources */,
+				AE3FD6C3222C83CA0037C51C /* MarsRoverInteractor.swift in Sources */,
 				AE3FD689222C7C9B0037C51C /* AppDelegate.swift in Sources */,
+				AE3FD6C0222C83CA0037C51C /* MarsRoverRouter.swift in Sources */,
+				AE3FD6BF222C83CA0037C51C /* MarsRoverWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +326,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AE3FD68C222C7C9B0037C51C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE3FD68D222C7C9B0037C51C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AE3FD691222C7C9C0037C51C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -358,11 +455,12 @@
 		};
 		AE3FD6A3222C7C9C0037C51C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E621486047E0416E5804EED /* Pods-Desafio Beblue_LucasCordeiro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 925DHG9B6Q;
-				INFOPLIST_FILE = "Desafio Beblue_LucasCordeiro/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Desafio Beblue_LucasCordeiro/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,11 +474,12 @@
 		};
 		AE3FD6A4222C7C9C0037C51C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC8F00934DAA6A5225626261 /* Pods-Desafio Beblue_LucasCordeiro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 925DHG9B6Q;
-				INFOPLIST_FILE = "Desafio Beblue_LucasCordeiro/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Desafio Beblue_LucasCordeiro/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
