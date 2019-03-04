@@ -12,22 +12,45 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MarsRoverPhotoCollectionViewCell" customModule="Desafio_Beblue_LucasCordeiro" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="247" height="239"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MarsRoverPhotoCollectionViewCell" id="gTV-IL-0wX" customClass="MarsRoverPhotoCollectionViewCell" customModule="Desafio_Beblue_LucasCordeiro" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="247" height="239"/>
+                <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbm-fm-doT">
-                        <rect key="frame" x="0.0" y="0.0" width="247" height="239"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pbm-fm-doT">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="pbm-fm-doT" secondAttribute="height" multiplier="3:4" id="VHz-gf-Zc9"/>
+                        </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhG-Wb-qsg" customClass="LOTAnimationView">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="marsAnimation"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
             </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="yhG-Wb-qsg" secondAttribute="trailing" id="FA7-fp-jXF"/>
+                <constraint firstItem="yhG-Wb-qsg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PNk-P5-uYb"/>
+                <constraint firstAttribute="trailing" secondItem="pbm-fm-doT" secondAttribute="trailing" id="WDw-lB-RlH"/>
+                <constraint firstItem="pbm-fm-doT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qfz-3Z-MH8"/>
+                <constraint firstItem="pbm-fm-doT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sGT-b4-dRQ"/>
+                <constraint firstAttribute="bottom" secondItem="yhG-Wb-qsg" secondAttribute="bottom" id="sea-df-V0l"/>
+                <constraint firstItem="yhG-Wb-qsg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="x4C-Rg-MBl"/>
+                <constraint firstAttribute="bottom" secondItem="pbm-fm-doT" secondAttribute="bottom" id="xLt-9z-EIH"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="247" height="239"/>
-            <point key="canvasLocation" x="290.39999999999998" y="239.73013493253376"/>
+            <size key="customSize" width="181" height="119"/>
+            <connections>
+                <outlet property="loadingAnimationView" destination="yhG-Wb-qsg" id="hDu-Yo-ujM"/>
+                <outlet property="marsRoverImageViewOutlet" destination="pbm-fm-doT" id="Ky2-3z-73u"/>
+            </connections>
+            <point key="canvasLocation" x="237.59999999999999" y="185.75712143928038"/>
         </collectionViewCell>
     </objects>
 </document>

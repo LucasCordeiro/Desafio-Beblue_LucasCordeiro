@@ -11,9 +11,11 @@
 //
 
 import UIKit
+import Lottie
 
 protocol MarsRoverDisplayLogic: class {
     func displayMarsPhotos(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel)
+    func displayMarsPhotosPagination(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel)
 }
 
 class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
@@ -26,13 +28,26 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
     //
     // MARK: - Outlets -
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var mainLoadingViewOutlet: LOTAnimationView!
 
     //
     // MARK: - Local Properties -
     private var marsRoverPhotos: [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto] = []
+    private let minNumberOfPhotos = 20
 
-    // MARK: Object lifecycle
+    //
+    // MARK: - Routing -
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
 
+    //
+    // MARK: - Life Cycle Methods -
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -43,8 +58,64 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
         setup()
     }
 
-    // MARK: Setup
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        configureCollectionViewCells()
+        loadMarsRoversPhotos()
+    }
+
+    //
+    // MARK: - Request Methods -
+    func loadMarsRoversPhotos() {
+        let request =
+            MarsRover.ListMarsRoverPhotos.Request(filter: RoverPhotosFilter.curiosity.stringValue(), date: nil)
+        mainLoadingViewOutlet.showAndPlay(loopAnimation: true)
+        interactor?.listMarsRoverPhotos(request: request)
+    }
+
+    func paginate() {
+        let request =
+            MarsRover.PaginateMarsRoverPhotos.Request(filter: RoverPhotosFilter.curiosity.stringValue())
+        interactor?.paginateMarsRoverPhotos(request: request)
+    }
+
+    //
+    // MARK: - Display Methods -
+    func displayMarsPhotos(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel) {
+        mainLoadingViewOutlet.hideAndStop()
+        marsRoverPhotos = viewModel.marsRoverPhotos
+
+        if marsRoverPhotos.count  < minNumberOfPhotos {
+            paginate()
+        }
+        collectionView.reloadData()
+    }
+
+    func displayMarsPhotosPagination(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel) {
+        mainLoadingViewOutlet.hideAndStop()
+        marsRoverPhotos.append(contentsOf: viewModel.marsRoverPhotos)
+
+        if marsRoverPhotos.count  < minNumberOfPhotos {
+            paginate()
+        }
+        collectionView.reloadData()
+    }
+
+    //
+    // MARK: - Action Methodes -
+    @IBAction func didChangeSegentedValue(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+        case 0:
+            
+        default:
+
+        }
+    }
+
+    //
+    // MARK: - Configure Methods -
     private func setup() {
         let viewController = self
         let interactor = MarsRoverInteractor()
@@ -58,38 +129,57 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
         router.dataStore = interactor
     }
 
-    // MARK: Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
+    private func configureCollectionViewCells() {
+        MarsRoverPhotoCollectionViewCell.register(inCollection: collectionView)
+    }
+}
+
+//
+// MARK: - UIScrollViewDelegate Extension -
+extension MarsRoverViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        if currentOffset >= maximumOffset * 0.65 {
+            paginate()
         }
     }
+}
 
-    // MARK: View lifecycle
+//
+// MARK: - UICollectionViewDelegate Extension -
+extension MarsRoverViewController: UICollectionViewDelegate {
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loadMarsRoversPhotos()
+//
+// MARK: - UICollectionViewDelegate Extension -
+extension MarsRoverViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
 
-    // MARK: Do something
-
-    //@IBOutlet weak var nameTextField: UITextField!
-
-    func loadMarsRoversPhotos() {
-        let request =
-            MarsRover.ListMarsRoverPhotos.Request(filter: RoverPhotosFilter.curiosity.stringValue(), date: nil)
-        interactor?.listMarsRoverPhotos(request: request)
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return marsRoverPhotos.count
     }
 
-    func displayMarsPhotos(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel) {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        marsRoverPhotos = viewModel.marsRoverPhotos
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: MarsRoverPhotoCollectionViewCell.classNameDescription(),
+            for: indexPath) as? MarsRoverPhotoCollectionViewCell else {
 
-        print("")
-        collectionView.reloadData()
+                assertionFailure("No cell with " +
+                    "\(MarsRoverPhotoCollectionViewCell.classNameDescription()) identifier registred")
+                return UICollectionViewCell()
+        }
+
+        if indexPath.row < marsRoverPhotos.count {
+            let url = marsRoverPhotos[indexPath.row].photosUrl
+            cell.configureCell(photoUrl: url)
+        }
+
+        return cell
     }
 }

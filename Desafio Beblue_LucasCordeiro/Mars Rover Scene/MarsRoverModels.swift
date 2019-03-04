@@ -13,28 +13,50 @@
 import UIKit
 
 enum MarsRover {
-  // MARK: Use cases
+    // MARK: Use cases
 
-  enum ListMarsRoverPhotos {
+    enum ListMarsRoverPhotos {
 
-    struct Request {
-        let filter: String
-        let date: String?
-    }
-
-    struct Response {
-        var photosInfo: [RoverPhotoInfo]?
-        var isError: Bool
-        var message: String?
-    }
-
-    struct ViewModel {
-
-        struct MarsRoverPhoto {
-            var photosUrl: URL
+        struct Request {
+            let filter: String
+            let date: Date?
         }
 
-        var marsRoverPhotos: [MarsRoverPhoto]
+        struct Response {
+            var photosInfo: [RoverPhotoInfo]?
+            var isError: Bool
+            var errorMessage: String?
+        }
+
+        struct ViewModel {
+
+            struct MarsRoverPhoto {
+                var photosUrl: URL
+            }
+
+            var marsRoverPhotos: [MarsRoverPhoto]
+        }
     }
-  }
+
+    enum PaginateMarsRoverPhotos {
+
+        struct Request {
+            let filter: String
+        }
+
+        struct Response {
+            var photosInfo: [RoverPhotoInfo]?
+            var isError: Bool
+            var errorMessage: String?
+        }
+
+        struct ViewModel {
+
+            struct MarsRoverPhoto {
+                var photosUrl: URL
+            }
+
+            var marsRoverPhotos: [MarsRoverPhoto]
+        }
+    }
 }

@@ -21,6 +21,7 @@
 		AE7A1E26222D768C00D110E7 /* MarsRover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A1E25222D768C00D110E7 /* MarsRover.storyboard */; };
 		AE7A1E2B222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E29222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.swift */; };
 		AE7A1E2C222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7A1E2A222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.xib */; };
+		AE7A1E2F222D918500D110E7 /* marsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = AE7A1E2E222D918500D110E7 /* marsAnimation.json */; };
 		AE9EF711222C9AF900B2BD21 /* APIRouterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF710222C9AF900B2BD21 /* APIRouterWorker.swift */; };
 		AE9EF713222C9B0800B2BD21 /* APIClientWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF712222C9B0800B2BD21 /* APIClientWorker.swift */; };
 		AE9EF716222C9CAA00B2BD21 /* RoverPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF715222C9CAA00B2BD21 /* RoverPhoto.swift */; };
@@ -58,6 +59,7 @@
 		AE7A1E25222D768C00D110E7 /* MarsRover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarsRover.storyboard; sourceTree = "<group>"; };
 		AE7A1E29222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE7A1E2A222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarsRoverPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE7A1E2E222D918500D110E7 /* marsAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = marsAnimation.json; sourceTree = "<group>"; };
 		AE9EF710222C9AF900B2BD21 /* APIRouterWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouterWorker.swift; sourceTree = "<group>"; };
 		AE9EF712222C9B0800B2BD21 /* APIClientWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientWorker.swift; sourceTree = "<group>"; };
 		AE9EF715222C9CAA00B2BD21 /* RoverPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhoto.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		AE3FD6A8222C80D50037C51C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AE7A1E2D222D917700D110E7 /* Animations */,
 				AE9EF717222C9DA800B2BD21 /* Centers */,
 				AE3FD688222C7C9B0037C51C /* AppDelegate.swift */,
 				AE3FD68F222C7C9C0037C51C /* Assets.xcassets */,
@@ -169,6 +172,14 @@
 				AE7A1E29222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.swift */,
 			);
 			path = "Collection Cell";
+			sourceTree = "<group>";
+		};
+		AE7A1E2D222D917700D110E7 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				AE7A1E2E222D918500D110E7 /* marsAnimation.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		AE9EF70F222C939F00B2BD21 /* Network */ = {
@@ -291,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE7A1E2F222D918500D110E7 /* marsAnimation.json in Resources */,
 				AE7A1E26222D768C00D110E7 /* MarsRover.storyboard in Resources */,
 				AE3FD693222C7C9C0037C51C /* LaunchScreen.storyboard in Resources */,
 				AE3FD690222C7C9C0037C51C /* Assets.xcassets in Resources */,
@@ -318,12 +330,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Desafio Beblue_LucasCordeiro/Pods-Desafio Beblue_LucasCordeiro-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

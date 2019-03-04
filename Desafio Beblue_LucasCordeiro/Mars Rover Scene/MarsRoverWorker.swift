@@ -12,23 +12,21 @@
 
 import UIKit
 
-typealias ResponseHandler = (_ response: MarsRover.ListMarsRoverPhotos.Response) -> Void
+typealias ListMarsRoverPhotosResponseHandler = (
+    _ photosInfo: [RoverPhotoInfo]?,
+    _ isError: Bool,
+    _ message: String?) -> Void
 
 class MarsRoverWorker {
     func listMarsRoverPhotos(filter: String,
                              date: String,
-                             success: @escaping(ResponseHandler),
-                             fail: @escaping(ResponseHandler)) {
+                             completion: @escaping(ListMarsRoverPhotosResponseHandler)) {
 
         APIClientWorker.listMarsRoverPhotos(filter: filter, date: date) { (result) in
             if let validResult = try? result.unwrap() {
-                success(MarsRover.ListMarsRoverPhotos.Response(photosInfo: validResult.photosInfo,
-                                                               isError: false,
-                                                               message: nil))
+                completion(validResult.photosInfo, false, nil)
             } else {
-                fail(MarsRover.ListMarsRoverPhotos.Response(photosInfo: nil,
-                                                            isError: true,
-                                                            message: "Result not found"))
+                completion(nil, true, "Result not found")
             }
         }
     }

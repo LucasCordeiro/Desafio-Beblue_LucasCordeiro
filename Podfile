@@ -6,5 +6,7 @@ target "Desafio Beblue_LucasCordeiro" do
 
 	pod 'Alamofire', '~> 5.0.0.beta.1'
 	pod 'SwiftLint'
+	pod 'SDWebImage'
+	pod 'lottie-ios'
 end
 

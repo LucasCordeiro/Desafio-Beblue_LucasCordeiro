@@ -13,26 +13,52 @@
 import UIKit
 
 protocol MarsRoverPresentationLogic {
-  func presentListMarsRoverPhotos(response: MarsRover.ListMarsRoverPhotos.Response)
+    func presentListMarsRoverPhotos(response: MarsRover.ListMarsRoverPhotos.Response)
+    func presentPaginateMarsRoverPhotos(response: MarsRover.PaginateMarsRoverPhotos.Response)
+
 }
 
 class MarsRoverPresenter: MarsRoverPresentationLogic {
-  weak var viewController: MarsRoverDisplayLogic?
 
-  // MARK: Do something
+    //
+    // MARK: - Scene Delegate -
+    weak var viewController: MarsRoverDisplayLogic?
 
-  func presentListMarsRoverPhotos(response: MarsRover.ListMarsRoverPhotos.Response) {
+    //
+    // MARK: - Present Lists -
+    func presentListMarsRoverPhotos(response: MarsRover.ListMarsRoverPhotos.Response) {
 
-    var marsRoverPhotos: [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto] = []
-    for photoInfo in response.photosInfo ?? [] {
-        guard let url = URL(string: photoInfo.imageSource ?? "") else {
-            continue
+        if response.isError {
+
+        } else {
+            let marsRoverPhotoVM = marsRoverPhotoViewModel(from: response.photosInfo)
+            viewController?.displayMarsPhotos(viewModel: marsRoverPhotoVM)
         }
-        let marsRoverPhoto = MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto(photosUrl: url)
-        marsRoverPhotos.append(marsRoverPhoto)
     }
 
-    let viewModel = MarsRover.ListMarsRoverPhotos.ViewModel(marsRoverPhotos: marsRoverPhotos)
-    viewController?.displayMarsPhotos(viewModel: viewModel)
-  }
+    func presentPaginateMarsRoverPhotos(response: MarsRover.PaginateMarsRoverPhotos.Response) {
+
+        if response.isError {
+
+        } else {
+            let marsRoverPhotoVM = marsRoverPhotoViewModel(from: response.photosInfo)
+            viewController?.displayMarsPhotosPagination(viewModel: marsRoverPhotoVM)
+        }
+    }
+
+    //
+    // MARK: - Auxiliar Methods -
+    func marsRoverPhotoViewModel(from photosInfo: [RoverPhotoInfo]?) -> MarsRover.ListMarsRoverPhotos.ViewModel {
+        var marsRoverPhotos: [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto] = []
+
+        for photoInfo in photosInfo ?? [] {
+            guard let url = URL(string: photoInfo.imageSource ?? "") else {
+                continue
+            }
+            let marsRoverPhoto = MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto(photosUrl: url)
+            marsRoverPhotos.append(marsRoverPhoto)
+        }
+
+        return MarsRover.ListMarsRoverPhotos.ViewModel(marsRoverPhotos: marsRoverPhotos)
+    }
 }

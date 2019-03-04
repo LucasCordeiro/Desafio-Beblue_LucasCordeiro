@@ -13,25 +13,53 @@
 import UIKit
 
 protocol MarsRoverBusinessLogic {
-  func listMarsRoverPhotos(request: MarsRover.ListMarsRoverPhotos.Request)
+    func listMarsRoverPhotos(request: MarsRover.ListMarsRoverPhotos.Request)
+    func paginateMarsRoverPhotos(request: MarsRover.PaginateMarsRoverPhotos.Request)
 }
 
 protocol MarsRoverDataStore {
-  //var name: String { get set }
 }
 
 class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
-  var presenter: MarsRoverPresentationLogic?
-  var worker: MarsRoverWorker?
+    //
+    // MARK: - Scene Delegates -
+    var presenter: MarsRoverPresentationLogic?
+    var worker: MarsRoverWorker?
 
-  func listMarsRoverPhotos(request: MarsRover.ListMarsRoverPhotos.Request) {
-    worker = MarsRoverWorker()
+    //
+    // MARK: - Local Properties -
+    private var lastDate: Date = Date()
 
-    let date = request.date ?? "2019-03-01"
-    worker?.listMarsRoverPhotos(filter: request.filter, date: date, success: { [weak self] (response) in
-        self?.presenter?.presentListMarsRoverPhotos(response: response)
-    }, fail: { [weak self] (response) in
-        self?.presenter?.presentListMarsRoverPhotos(response: response)
-    })
-  }
+    //
+    // MARK: - Mars Rover Methods -
+    func listMarsRoverPhotos(request: MarsRover.ListMarsRoverPhotos.Request) {
+        worker = MarsRoverWorker()
+        if let date = request.date {
+            lastDate = date
+        }
+
+        let dateString = lastDate.stringWithFormat(dateFormat: "yyyy-MM-dd")
+        worker?.listMarsRoverPhotos(filter: request.filter,
+                                    date: dateString,
+                                    completion: { [weak self] (photosInfo, isError, errorMessage)  in
+            let response =  MarsRover.ListMarsRoverPhotos.Response(photosInfo: photosInfo,
+                                                                   isError: isError,
+                                                                   errorMessage: errorMessage)
+            self?.presenter?.presentListMarsRoverPhotos(response: response)
+            })
+    }
+
+    func paginateMarsRoverPhotos(request: MarsRover.PaginateMarsRoverPhotos.Request) {
+        worker = MarsRoverWorker()
+        lastDate = lastDate.dayBefore
+        let dateString = lastDate.stringWithFormat(dateFormat: "yyyy-MM-dd")
+        worker?.listMarsRoverPhotos(filter: request.filter,
+                                    date: dateString,
+                                    completion: { [weak self] (photosInfo, isError, errorMessage)  in
+            let response =  MarsRover.PaginateMarsRoverPhotos.Response(photosInfo: photosInfo,
+                                                                       isError: isError,
+                                                                       errorMessage: errorMessage)
+            self?.presenter?.presentPaginateMarsRoverPhotos(response: response)
+        })
+    }
 }
