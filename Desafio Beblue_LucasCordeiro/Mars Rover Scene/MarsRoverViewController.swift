@@ -103,18 +103,6 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
     }
 
     //
-    // MARK: - Action Methodes -
-    @IBAction func didChangeSegentedValue(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-        case 0:
-            
-        default:
-
-        }
-    }
-
-    //
     // MARK: - Configure Methods -
     private func setup() {
         let viewController = self
