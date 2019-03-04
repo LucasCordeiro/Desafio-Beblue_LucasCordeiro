@@ -14,7 +14,7 @@ struct ServerInfo {
     static let isProduction = true
 
     /// Mars Api Authentication Key
-    static let marsApiKey = isProduction ? "OK0nAeKNxYIe7vv8wwZxbLVEVeeVZ5Gjk6JKYy6l" : "DEMO_KEY"
+    static let marsApiKey = isProduction ? "AJRbFmue5nNlLX90zAQiG4fgeSvyorV5LPGVa4fY" : "DEMO_KEY"
 
     /// Service sever urls
     struct ServiceServer {

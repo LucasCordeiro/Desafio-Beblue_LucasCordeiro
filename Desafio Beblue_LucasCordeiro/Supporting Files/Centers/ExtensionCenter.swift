@@ -12,6 +12,13 @@ import Lottie
 
 extension Date {
 
+    static func date(fromString: String, withFormat format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+
+        return dateFormatter.date(from: fromString)
+    }
+    
     static var yesterday: Date {
         return Calendar.current.date(byAdding: .day, value: -1, to: Date().noon)!
     }

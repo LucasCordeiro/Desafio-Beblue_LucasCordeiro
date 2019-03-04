@@ -29,6 +29,7 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
     // MARK: - Outlets -
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var mainLoadingViewOutlet: LOTAnimationView!
+    @IBOutlet weak var filterSegmentedControllOutlet: UISegmentedControl!
 
     //
     // MARK: - Local Properties -
@@ -62,44 +63,71 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
         super.viewDidLoad()
 
         configureCollectionViewCells()
-        loadMarsRoversPhotos()
+
+        filterSegmentedControllOutlet.selectedSegmentIndex = 0
+        loadMarsRoversPhotos(filter: .curiosity)
     }
 
     //
     // MARK: - Request Methods -
-    func loadMarsRoversPhotos() {
+    func loadMarsRoversPhotos(filter: RoverPhotosFilter) {
+
+        var date = Date()
+        switch filter {
+        case .curiosity:
+            date = Date.date(fromString: "2019-03-01", withFormat: "yyyy-MM-dd") ?? Date()
+        case .opportunity:
+            date = Date.date(fromString: "2018-06-11", withFormat: "yyyy-MM-dd") ?? Date()
+        case .spirit:
+            date = Date.date(fromString: "2010-03-21", withFormat: "yyyy-MM-dd") ?? Date()
+        }
         let request =
-            MarsRover.ListMarsRoverPhotos.Request(filter: RoverPhotosFilter.curiosity.stringValue(), date: nil)
+            MarsRover.ListMarsRoverPhotos.Request(filter: filter, date: date)
         mainLoadingViewOutlet.showAndPlay(loopAnimation: true)
         interactor?.listMarsRoverPhotos(request: request)
     }
 
     func paginate() {
-        let request =
-            MarsRover.PaginateMarsRoverPhotos.Request(filter: RoverPhotosFilter.curiosity.stringValue())
-        interactor?.paginateMarsRoverPhotos(request: request)
+        interactor?.paginateMarsRoverPhotos(request: nil)
     }
 
     //
     // MARK: - Display Methods -
     func displayMarsPhotos(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel) {
-        mainLoadingViewOutlet.hideAndStop()
         marsRoverPhotos = viewModel.marsRoverPhotos
 
         if marsRoverPhotos.count  < minNumberOfPhotos {
             paginate()
+        } else {
+            mainLoadingViewOutlet.hideAndStop()
         }
         collectionView.reloadData()
     }
 
     func displayMarsPhotosPagination(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel) {
-        mainLoadingViewOutlet.hideAndStop()
         marsRoverPhotos.append(contentsOf: viewModel.marsRoverPhotos)
 
         if marsRoverPhotos.count  < minNumberOfPhotos {
             paginate()
+        } else {
+            mainLoadingViewOutlet.hideAndStop()
         }
         collectionView.reloadData()
+    }
+
+    //
+    // MARK: - Action Methodes -
+    @IBAction func didChangeSegentedValue(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            loadMarsRoversPhotos(filter: .curiosity)
+        case 1:
+            loadMarsRoversPhotos(filter: .opportunity)
+        case 2:
+            loadMarsRoversPhotos(filter: .spirit)
+        default:
+            assertionFailure("No segmented index implemented")
+        }
     }
 
     //

@@ -18,7 +18,7 @@ enum MarsRover {
     enum ListMarsRoverPhotos {
 
         struct Request {
-            let filter: String
+            let filter: RoverPhotosFilter
             let date: Date?
         }
 
@@ -41,7 +41,6 @@ enum MarsRover {
     enum PaginateMarsRoverPhotos {
 
         struct Request {
-            let filter: String
         }
 
         struct Response {
