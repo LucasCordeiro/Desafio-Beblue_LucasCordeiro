@@ -13,7 +13,7 @@
 import UIKit
 
 protocol MarsRoverPresentationLogic {
-  func presentSomething(response: MarsRover.Something.Response)
+  func presentListMarsRoverPhotos(response: MarsRover.ListMarsRoverPhotos.Response)
 }
 
 class MarsRoverPresenter: MarsRoverPresentationLogic {
@@ -21,8 +21,18 @@ class MarsRoverPresenter: MarsRoverPresentationLogic {
 
   // MARK: Do something
 
-  func presentSomething(response: MarsRover.Something.Response) {
-    let viewModel = MarsRover.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentListMarsRoverPhotos(response: MarsRover.ListMarsRoverPhotos.Response) {
+
+    var marsRoverPhotos: [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto] = []
+    for photoInfo in response.photosInfo ?? [] {
+        guard let url = URL(string: photoInfo.imageSource ?? "") else {
+            continue
+        }
+        let marsRoverPhoto = MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto(photosUrl: url)
+        marsRoverPhotos.append(marsRoverPhoto)
+    }
+
+    let viewModel = MarsRover.ListMarsRoverPhotos.ViewModel(marsRoverPhotos: marsRoverPhotos)
+    viewController?.displayMarsPhotos(viewModel: viewModel)
   }
 }

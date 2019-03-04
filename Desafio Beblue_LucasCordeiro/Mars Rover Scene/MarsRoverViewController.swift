@@ -13,68 +13,83 @@
 import UIKit
 
 protocol MarsRoverDisplayLogic: class {
-  func displaySomething(viewModel: MarsRover.Something.ViewModel)
+    func displayMarsPhotos(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel)
 }
 
 class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
-  var interactor: MarsRoverBusinessLogic?
-  var router: (NSObjectProtocol & MarsRoverRoutingLogic & MarsRoverDataPassing)?
 
-  // MARK: Object lifecycle
+    //
+    // MARK: - Scene Delegates -
+    var interactor: MarsRoverBusinessLogic?
+    var router: (NSObjectProtocol & MarsRoverRoutingLogic & MarsRoverDataPassing)?
 
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
+    //
+    // MARK: - Outlets -
+    @IBOutlet weak var collectionView: UICollectionView!
 
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
+    //
+    // MARK: - Local Properties -
+    private var marsRoverPhotos: [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto] = []
 
-  // MARK: Setup
+    // MARK: Object lifecycle
 
-  private func setup() {
-    let viewController = self
-    let interactor = MarsRoverInteractor()
-    let presenter = MarsRoverPresenter()
-    let router = MarsRoverRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-
-  // MARK: Routing
-
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
     }
-  }
 
-  // MARK: View lifecycle
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    doSomething()
-  }
+    // MARK: Setup
 
-  // MARK: Do something
+    private func setup() {
+        let viewController = self
+        let interactor = MarsRoverInteractor()
+        let presenter = MarsRoverPresenter()
+        let router = MarsRoverRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
 
-  //@IBOutlet weak var nameTextField: UITextField!
+    // MARK: Routing
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
 
-  func doSomething() {
-    let request = MarsRover.Something.Request()
-    interactor?.doSomething(request: request)
-  }
+    // MARK: View lifecycle
 
-  func displaySomething(viewModel: MarsRover.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadMarsRoversPhotos()
+    }
+
+    // MARK: Do something
+
+    //@IBOutlet weak var nameTextField: UITextField!
+
+    func loadMarsRoversPhotos() {
+        let request =
+            MarsRover.ListMarsRoverPhotos.Request(filter: RoverPhotosFilter.curiosity.stringValue(), date: nil)
+        interactor?.listMarsRoverPhotos(request: request)
+    }
+
+    func displayMarsPhotos(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel) {
+
+        marsRoverPhotos = viewModel.marsRoverPhotos
+
+        print("")
+        collectionView.reloadData()
+    }
 }

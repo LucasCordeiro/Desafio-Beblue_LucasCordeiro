@@ -15,15 +15,26 @@ import UIKit
 enum MarsRover {
   // MARK: Use cases
 
-  enum Something {
+  enum ListMarsRoverPhotos {
 
     struct Request {
+        let filter: String
+        let date: String?
     }
 
     struct Response {
+        var photosInfo: [RoverPhotoInfo]?
+        var isError: Bool
+        var message: String?
     }
 
     struct ViewModel {
+
+        struct MarsRoverPhoto {
+            var photosUrl: URL
+        }
+
+        var marsRoverPhotos: [MarsRoverPhoto]
     }
   }
 }

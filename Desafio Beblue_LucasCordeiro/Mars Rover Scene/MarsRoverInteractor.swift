@@ -13,7 +13,7 @@
 import UIKit
 
 protocol MarsRoverBusinessLogic {
-  func doSomething(request: MarsRover.Something.Request)
+  func listMarsRoverPhotos(request: MarsRover.ListMarsRoverPhotos.Request)
 }
 
 protocol MarsRoverDataStore {
@@ -23,15 +23,15 @@ protocol MarsRoverDataStore {
 class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
   var presenter: MarsRoverPresentationLogic?
   var worker: MarsRoverWorker?
-  //var name: String = ""
 
-  // MARK: Do something
-
-  func doSomething(request: MarsRover.Something.Request) {
+  func listMarsRoverPhotos(request: MarsRover.ListMarsRoverPhotos.Request) {
     worker = MarsRoverWorker()
-    worker?.doSomeWork()
 
-    let response = MarsRover.Something.Response()
-    presenter?.presentSomething(response: response)
+    let date = request.date ?? "2019-03-01"
+    worker?.listMarsRoverPhotos(filter: request.filter, date: date, success: { [weak self] (response) in
+        self?.presenter?.presentListMarsRoverPhotos(response: response)
+    }, fail: { [weak self] (response) in
+        self?.presenter?.presentListMarsRoverPhotos(response: response)
+    })
   }
 }
