@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x0q-6Z-HJ1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cUJ-1T-xvg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Mars Rover View Controller-->
+        <!--Mars Rover Photos-->
         <scene sceneID="vI3-9M-bcP">
             <objects>
                 <viewController storyboardIdentifier="MarsRoverViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x0q-6Z-HJ1" customClass="MarsRoverViewController" customModule="Desafio_Beblue_LucasCordeiro" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bRT-kI-xXh">
-                                <rect key="frame" x="0.0" y="20" width="375" height="29"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
                                 <segments>
                                     <segment title="Curiosity"/>
                                     <segment title="Opportunity"/>
@@ -30,7 +30,7 @@
                                 </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-ja-BR9">
-                                <rect key="frame" x="0.0" y="48" width="375" height="619"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="575"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="0K9-7J-pjW">
                                     <size key="itemSize" width="120" height="160"/>
@@ -45,14 +45,14 @@
                                 </connections>
                             </collectionView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NY9-hV-nkt">
-                                <rect key="frame" x="0.0" y="48" width="375" height="619"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="575"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBM-QJ-otr">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="619"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="575"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.652044191" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGO-5F-8Bd" customClass="LOTAnimationView">
-                                        <rect key="frame" x="112.5" y="234.5" width="150" height="150"/>
+                                        <rect key="frame" x="112.5" y="212.5" width="150" height="150"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="4I4-Xu-ipE"/>
@@ -90,6 +90,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WFF-Co-Yxz"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Mars Rover Photos" id="kSo-yj-n3m">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="LLR-wo-a27"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="wN1-ja-BR9" id="7WC-95-zTS"/>
                         <outlet property="filterSegmentedControllOutlet" destination="bRT-kI-xXh" id="4yu-e7-ciI"/>
@@ -99,6 +102,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3Z-uS-b1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="149.59999999999999" y="113.79310344827587"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="D9P-BA-RfD">
+            <objects>
+                <navigationController id="cUJ-1T-xvg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HUP-j4-NR4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="x0q-6Z-HJ1" kind="relationship" relationship="rootViewController" id="chl-PO-iXT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xFh-Yo-p7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-684" y="114"/>
         </scene>
     </scenes>
 </document>

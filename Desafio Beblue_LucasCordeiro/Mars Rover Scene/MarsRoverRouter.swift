@@ -13,46 +13,70 @@
 import UIKit
 
 @objc protocol MarsRoverRoutingLogic {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToPhotosDetail(segue: UIStoryboardSegue?)
 }
 
 protocol MarsRoverDataPassing {
-  var dataStore: MarsRoverDataStore? { get }
+    var dataStore: MarsRoverDataStore? { get }
 }
 
 class MarsRoverRouter: NSObject, MarsRoverRoutingLogic, MarsRoverDataPassing {
-  weak var viewController: MarsRoverViewController?
-  var dataStore: MarsRoverDataStore?
+    weak var viewController: MarsRoverViewController?
+    var dataStore: MarsRoverDataStore?
 
-  // MARK: Routing
+    //
+    // MARK: - Routing -
+    func routeToPhotosDetail(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+            guard let destinationVC = segue.destination as? MarsPhotosDetailViewController,
+            var destinationDS = destinationVC.router?.dataStore,
+            let dataStore = dataStore
+                else {
+                fatalErrorPhotosDetailNavigation()
+                return
+            }
 
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC =
-  //    storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+            passDataDetailView(source: dataStore, destination: &destinationDS)
+        } else {
+            let destinationVC = MarsPhotosDetailViewController.storyboardInit()
 
-  // MARK: Navigation
+            guard var destinationDS = destinationVC.router?.dataStore,
+                let dataStore = dataStore,
+                let viewController = viewController
+                else {
+                    fatalErrorPhotosDetailNavigation()
+                    return
+            }
 
-  //func navigateToSomewhere(source: MarsRoverViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
+            passDataDetailView(source: dataStore, destination: &destinationDS)
+            navigateDetailView(source: viewController, destination: destinationVC)
+        }
+    }
 
-  // MARK: Passing data
+    //
+    // MARK: - Navigation -
+    func navigateDetailView(source: MarsRoverViewController, destination: MarsPhotosDetailViewController) {
+        guard let navigationController = source.navigationController else {
+            assertionFailure("No navigation controller on \(MarsRoverViewController.classNameDescription())")
+            return
+        }
 
-  //func passDataToSomewhere(source: MarsRoverDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+        navigationController.pushViewController(destination, animated: true)
+    }
+
+    //
+    // MARK: - Passing data -
+    func passDataDetailView(source: MarsRoverDataStore, destination: inout MarsPhotosDetailDataStore) {
+        guard let roverPhotoInfo = source.selectedRoverPhotoInfo else {
+            fatalErrorPhotosDetailNavigation()
+            return
+        }
+        destination.roverPhotoInfo = roverPhotoInfo
+    }
+
+    //
+    // MARK: - Error Handle -
+    private func fatalErrorPhotosDetailNavigation() {
+        assertionFailure("Error while navigating to MarsPhotosDetailViewController")
+    }
 }

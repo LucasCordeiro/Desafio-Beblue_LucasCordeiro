@@ -15,16 +15,21 @@ import UIKit
 protocol MarsRoverBusinessLogic {
     func listMarsRoverPhotos(request: MarsRover.ListMarsRoverPhotos.Request)
     func paginateMarsRoverPhotos(request: MarsRover.PaginateMarsRoverPhotos.Request?)
+    func selectPhotoInfo(at indexPath: IndexPath)
 }
 
 protocol MarsRoverDataStore {
+    var selectedRoverPhotoInfo: RoverPhotoInfo? { get set }
 }
 
 class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
+
     //
-    // MARK: - Scene Delegates -
+    // MARK: - Scene Properties -
     var presenter: MarsRoverPresentationLogic?
     var worker: MarsRoverWorker?
+    var selectedRoverPhotoInfo: RoverPhotoInfo?
+    var roverPhotosInfo: [RoverPhotoInfo] = []
 
     //
     // MARK: - Local Properties -
@@ -49,6 +54,7 @@ class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
             let response =  MarsRover.ListMarsRoverPhotos.Response(photosInfo: photosInfo,
                                                                    isError: isError,
                                                                    errorMessage: errorMessage)
+            self?.roverPhotosInfo = photosInfo ?? []
             self?.presenter?.presentListMarsRoverPhotos(response: response)
             })
     }
@@ -69,7 +75,15 @@ class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
             let response =  MarsRover.PaginateMarsRoverPhotos.Response(photosInfo: photosInfo,
                                                                        isError: isError,
                                                                        errorMessage: errorMessage)
+            self?.roverPhotosInfo.append(contentsOf: photosInfo ?? [])
             self?.presenter?.presentPaginateMarsRoverPhotos(response: response)
         })
+    }
+
+    func selectPhotoInfo(at indexPath: IndexPath) {
+        let index = indexPath.row
+        if index <  roverPhotosInfo.count {
+            selectedRoverPhotoInfo =  roverPhotosInfo[index]
+        }
     }
 }

@@ -22,6 +22,13 @@
 		AE7A1E2B222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E29222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.swift */; };
 		AE7A1E2C222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7A1E2A222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.xib */; };
 		AE7A1E2F222D918500D110E7 /* marsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = AE7A1E2E222D918500D110E7 /* marsAnimation.json */; };
+		AE7A1E39222DF20900D110E7 /* MarsPhotosDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E33222DF20900D110E7 /* MarsPhotosDetailPresenter.swift */; };
+		AE7A1E3A222DF20900D110E7 /* MarsPhotosDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E34222DF20900D110E7 /* MarsPhotosDetailWorker.swift */; };
+		AE7A1E3B222DF20900D110E7 /* MarsPhotosDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E35222DF20900D110E7 /* MarsPhotosDetailRouter.swift */; };
+		AE7A1E3C222DF20900D110E7 /* MarsPhotosDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E36222DF20900D110E7 /* MarsPhotosDetailModels.swift */; };
+		AE7A1E3D222DF20900D110E7 /* MarsPhotosDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E37222DF20900D110E7 /* MarsPhotosDetailViewController.swift */; };
+		AE7A1E3E222DF20900D110E7 /* MarsPhotosDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E38222DF20900D110E7 /* MarsPhotosDetailInteractor.swift */; };
+		AE7A1E40222DF30B00D110E7 /* MarsPhotosDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A1E3F222DF30B00D110E7 /* MarsPhotosDetail.storyboard */; };
 		AE9EF711222C9AF900B2BD21 /* APIRouterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF710222C9AF900B2BD21 /* APIRouterWorker.swift */; };
 		AE9EF713222C9B0800B2BD21 /* APIClientWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF712222C9B0800B2BD21 /* APIClientWorker.swift */; };
 		AE9EF716222C9CAA00B2BD21 /* RoverPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF715222C9CAA00B2BD21 /* RoverPhoto.swift */; };
@@ -60,6 +67,13 @@
 		AE7A1E29222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE7A1E2A222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarsRoverPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		AE7A1E2E222D918500D110E7 /* marsAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = marsAnimation.json; sourceTree = "<group>"; };
+		AE7A1E33222DF20900D110E7 /* MarsPhotosDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailPresenter.swift; sourceTree = "<group>"; };
+		AE7A1E34222DF20900D110E7 /* MarsPhotosDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailWorker.swift; sourceTree = "<group>"; };
+		AE7A1E35222DF20900D110E7 /* MarsPhotosDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailRouter.swift; sourceTree = "<group>"; };
+		AE7A1E36222DF20900D110E7 /* MarsPhotosDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailModels.swift; sourceTree = "<group>"; };
+		AE7A1E37222DF20900D110E7 /* MarsPhotosDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailViewController.swift; sourceTree = "<group>"; };
+		AE7A1E38222DF20900D110E7 /* MarsPhotosDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailInteractor.swift; sourceTree = "<group>"; };
+		AE7A1E3F222DF30B00D110E7 /* MarsPhotosDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarsPhotosDetail.storyboard; sourceTree = "<group>"; };
 		AE9EF710222C9AF900B2BD21 /* APIRouterWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouterWorker.swift; sourceTree = "<group>"; };
 		AE9EF712222C9B0800B2BD21 /* APIClientWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientWorker.swift; sourceTree = "<group>"; };
 		AE9EF715222C9CAA00B2BD21 /* RoverPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhoto.swift; sourceTree = "<group>"; };
@@ -121,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3FD6A9222C80E70037C51C /* Mars Rover Scene */,
+				AE7A1E32222DF1DF00D110E7 /* Mars Photos Detail */,
 				AE7A1E27222D83C200D110E7 /* Collection Cell */,
 				AE9EF714222C9BE700B2BD21 /* Models */,
 				AE9EF70F222C939F00B2BD21 /* Network */,
@@ -180,6 +195,20 @@
 				AE7A1E2E222D918500D110E7 /* marsAnimation.json */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		AE7A1E32222DF1DF00D110E7 /* Mars Photos Detail */ = {
+			isa = PBXGroup;
+			children = (
+				AE7A1E3F222DF30B00D110E7 /* MarsPhotosDetail.storyboard */,
+				AE7A1E37222DF20900D110E7 /* MarsPhotosDetailViewController.swift */,
+				AE7A1E38222DF20900D110E7 /* MarsPhotosDetailInteractor.swift */,
+				AE7A1E33222DF20900D110E7 /* MarsPhotosDetailPresenter.swift */,
+				AE7A1E34222DF20900D110E7 /* MarsPhotosDetailWorker.swift */,
+				AE7A1E36222DF20900D110E7 /* MarsPhotosDetailModels.swift */,
+				AE7A1E35222DF20900D110E7 /* MarsPhotosDetailRouter.swift */,
+			);
+			path = "Mars Photos Detail";
 			sourceTree = "<group>";
 		};
 		AE9EF70F222C939F00B2BD21 /* Network */ = {
@@ -307,6 +336,7 @@
 				AE3FD693222C7C9C0037C51C /* LaunchScreen.storyboard in Resources */,
 				AE3FD690222C7C9C0037C51C /* Assets.xcassets in Resources */,
 				AE7A1E2C222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.xib in Resources */,
+				AE7A1E40222DF30B00D110E7 /* MarsPhotosDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,10 +424,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE3FD6C2222C83CA0037C51C /* MarsRoverViewController.swift in Sources */,
+				AE7A1E3D222DF20900D110E7 /* MarsPhotosDetailViewController.swift in Sources */,
 				AE7A1E2B222D83FD00D110E7 /* MarsRoverPhotoCollectionViewCell.swift in Sources */,
 				AE3FD6BE222C83CA0037C51C /* MarsRoverPresenter.swift in Sources */,
+				AE7A1E39222DF20900D110E7 /* MarsPhotosDetailPresenter.swift in Sources */,
+				AE7A1E3A222DF20900D110E7 /* MarsPhotosDetailWorker.swift in Sources */,
 				AE9EF71B222C9DF200B2BD21 /* ConstantCenter.swift in Sources */,
 				AE3FD6C1222C83CA0037C51C /* MarsRoverModels.swift in Sources */,
+				AE7A1E3B222DF20900D110E7 /* MarsPhotosDetailRouter.swift in Sources */,
 				AE9EF716222C9CAA00B2BD21 /* RoverPhoto.swift in Sources */,
 				AE3FD6C3222C83CA0037C51C /* MarsRoverInteractor.swift in Sources */,
 				AE9EF71D222CB14300B2BD21 /* EnumCenter.swift in Sources */,
@@ -406,6 +440,8 @@
 				AE9EF711222C9AF900B2BD21 /* APIRouterWorker.swift in Sources */,
 				AE3FD6C0222C83CA0037C51C /* MarsRoverRouter.swift in Sources */,
 				AE3FD6BF222C83CA0037C51C /* MarsRoverWorker.swift in Sources */,
+				AE7A1E3C222DF20900D110E7 /* MarsPhotosDetailModels.swift in Sources */,
+				AE7A1E3E222DF20900D110E7 /* MarsPhotosDetailInteractor.swift in Sources */,
 				AE9EF719222C9DB700B2BD21 /* ExtensionCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

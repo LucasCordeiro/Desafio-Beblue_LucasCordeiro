@@ -21,7 +21,7 @@ protocol MarsRoverDisplayLogic: class {
 class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
 
     //
-    // MARK: - Scene Delegates -
+    // MARK: - Scene Properties -
     var interactor: MarsRoverBusinessLogic?
     var router: (NSObjectProtocol & MarsRoverRoutingLogic & MarsRoverDataPassing)?
 
@@ -166,6 +166,10 @@ extension MarsRoverViewController: UIScrollViewDelegate {
 //
 // MARK: - UICollectionViewDelegate Extension -
 extension MarsRoverViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        interactor?.selectPhotoInfo(at: indexPath)
+        router?.routeToPhotosDetail(segue: nil)
+    }
 }
 
 //

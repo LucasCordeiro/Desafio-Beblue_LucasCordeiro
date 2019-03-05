@@ -21,7 +21,7 @@ protocol MarsRoverPresentationLogic {
 class MarsRoverPresenter: MarsRoverPresentationLogic {
 
     //
-    // MARK: - Scene Delegate -
+    // MARK: - Scene Properties -
     weak var viewController: MarsRoverDisplayLogic?
 
     //
