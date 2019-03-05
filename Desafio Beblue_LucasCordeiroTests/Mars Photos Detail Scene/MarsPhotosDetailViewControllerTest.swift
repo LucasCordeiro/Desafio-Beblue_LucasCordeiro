@@ -1,15 +1,14 @@
 //
-//  Desafio_Beblue_LucasCordeiroTests.swift
+//  MarsPhotosDetailViewControllerTest.swift
 //  Desafio Beblue_LucasCordeiroTests
 //
-//  Created by Lucas Cordeiro on 03/03/19.
+//  Created by Lucas Cordeiro on 05/03/19.
 //  Copyright © 2019 Sparks. All rights reserved.
 //
 
 import XCTest
-@testable import Desafio_Beblue_LucasCordeiro
 
-class LucasCordeiroTests: XCTestCase {
+class MarsPhotosDetailViewControllerTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

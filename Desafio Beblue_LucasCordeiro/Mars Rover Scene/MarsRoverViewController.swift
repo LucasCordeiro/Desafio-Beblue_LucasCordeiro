@@ -33,7 +33,7 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
 
     //
     // MARK: - Local Properties -
-    private var marsRoverPhotos: [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto] = []
+    var marsRoverPhotos: [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto] = []
     private let minNumberOfPhotos = 20
 
     //
@@ -57,6 +57,19 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+    }
+
+    static func storyboardInit() -> MarsRoverViewController {
+        let storyboard = UIStoryboard(name: "MarsRover", bundle: nil)
+        guard let viewController =
+            storyboard.instantiateViewController(withIdentifier:
+                MarsRoverViewController.classNameDescription()) as? MarsRoverViewController else {
+                    assertionFailure("No view controller with" +
+                        "\(MarsRoverViewController.classNameDescription()) identifier")
+                    return MarsRoverViewController()
+        }
+
+        return viewController
     }
 
     override func viewDidLoad() {
@@ -98,7 +111,7 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
 
         if marsRoverPhotos.count  < minNumberOfPhotos {
             paginate()
-        } else {
+        } else if marsRoverPhotos.count > 1 {
             mainLoadingViewOutlet.hideAndStop()
         }
         collectionView.reloadData()
@@ -109,7 +122,7 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
 
         if marsRoverPhotos.count  < minNumberOfPhotos {
             paginate()
-        } else {
+        } else if marsRoverPhotos.count > 1 {
             mainLoadingViewOutlet.hideAndStop()
         }
         collectionView.reloadData()
