@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fC4-gm-CzP">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mars Photos Detail View Controller-->
+        <scene sceneID="2OQ-vk-jz2">
+            <objects>
+                <viewController storyboardIdentifier="MarsPhotosDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fC4-gm-CzP" customClass="MarsPhotosDetailViewController" customModule="Desafio_Beblue_LucasCordeiro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k1A-mg-Psn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ySb-6o-fax">
+                                <rect key="frame" x="0.0" y="167" width="375" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ySb-6o-fax" secondAttribute="height" multiplier="3:4" id="x3k-eR-rLs"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bV2-nS-Dy3">
+                                <rect key="frame" x="16" y="129" width="80" height="30"/>
+                                <state key="normal" title="RoverName">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="roverButtonPressed:" destination="fC4-gm-CzP" eventType="touchUpInside" id="Ddg-Vm-tiF"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYO-Xg-496" customClass="LOTAnimationView">
+                                <rect key="frame" x="112.5" y="342" width="150" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BYO-Xg-496" secondAttribute="height" multiplier="1:1" id="2wl-oa-pFT"/>
+                                    <constraint firstAttribute="height" constant="150" id="Hst-hT-3IH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="marsLoading"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bV2-nS-Dy3" firstAttribute="leading" secondItem="TkX-9h-jzY" secondAttribute="leading" constant="16" id="0h8-Gf-nEc"/>
+                            <constraint firstItem="ySb-6o-fax" firstAttribute="bottom" secondItem="TkX-9h-jzY" secondAttribute="bottom" id="9Vz-Jb-kHr"/>
+                            <constraint firstItem="ySb-6o-fax" firstAttribute="top" secondItem="bV2-nS-Dy3" secondAttribute="bottom" constant="8" id="ZmA-RC-zc7"/>
+                            <constraint firstItem="ySb-6o-fax" firstAttribute="leading" secondItem="TkX-9h-jzY" secondAttribute="leading" id="cYl-G5-zDo"/>
+                            <constraint firstItem="ySb-6o-fax" firstAttribute="trailing" secondItem="TkX-9h-jzY" secondAttribute="trailing" id="olO-ok-v64"/>
+                            <constraint firstItem="BYO-Xg-496" firstAttribute="centerY" secondItem="ySb-6o-fax" secondAttribute="centerY" id="ra9-a8-iEo"/>
+                            <constraint firstItem="BYO-Xg-496" firstAttribute="centerX" secondItem="ySb-6o-fax" secondAttribute="centerX" id="tIm-fP-kxe"/>
+                            <constraint firstItem="bV2-nS-Dy3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TkX-9h-jzY" secondAttribute="top" constant="8" id="xPY-9b-evv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TkX-9h-jzY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageLoadingView" destination="BYO-Xg-496" id="kIs-yI-Tu3"/>
+                        <outlet property="imageViewOutlet" destination="ySb-6o-fax" id="5fN-sc-6Dd"/>
+                        <outlet property="roverButtonOutlet" destination="bV2-nS-Dy3" id="I27-0m-5tU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ii1-Ux-hBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4" y="48.125937031484263"/>
+        </scene>
+    </scenes>
+</document>
