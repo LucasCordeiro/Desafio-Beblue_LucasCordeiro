@@ -22,17 +22,13 @@ class APIClientWorker {
     private static func performRequest<T: Decodable>(route: APIRouterWorker,
                                                      decoder: JSONDecoder = JSONDecoder(),
                                                      completion: @escaping (Result<T>) -> Void) -> DataRequest {
-        /*
-         let manager = Alamofire.SessionManager.default
-         manager.session.configuration.timeoutIntervalForRequest = 120
-         */
         return Alamofire.Session.default.request(route)
             .responseDecodable (decoder: decoder) { (response: DataResponse<T>) in
                 completion(response.result)
         }
     }
 
-    /// Get news from API
+    /// Get Mars Rover Photo from Nasa API
     ///
     /// - Parameters:
     ///   - completion: completion called after finishing request

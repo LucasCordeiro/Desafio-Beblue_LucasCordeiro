@@ -1,0 +1,141 @@
+//
+//  MarsRoverPresenterTest.swift
+//  Desafio Beblue_LucasCordeiroTests
+//
+//  Created by Lucas Cordeiro on 05/03/19.
+//  Copyright © 2019 Sparks. All rights reserved.
+//
+
+import XCTest
+@testable import Desafio_Beblue_LucasCordeiro
+
+class MarsRoverPresenterTest: XCTestCase {
+
+    //
+    // MARK: - SUT -
+    var sut: MarsRoverPresenter!
+
+    //
+    // MARK: - Test Lifecycle -
+    override func setUp() {
+        super.setUp()
+        setupMarsRoverPresenter()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    //
+    // MARK: - Configure Test -
+    func setupMarsRoverPresenter() {
+        sut = MarsRoverPresenter()
+    }
+
+    //
+    // MARK: - Spys -
+    class MarsRoverDisplayLogicSpy: MarsRoverDisplayLogic {
+
+        var displayMarsPhotosCalled = false
+        var displayMarsPhotosPaginationCalled = false
+        var displayErrorCalled = false
+
+        func displayMarsPhotos(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel) {
+            displayMarsPhotosCalled = true
+        }
+
+        func displayMarsPhotosPagination(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel) {
+            displayMarsPhotosPaginationCalled = true
+        }
+
+        func displayError(message: String) {
+            displayErrorCalled = true
+        }
+    }
+
+    //
+    // MARK: - Test Methods -
+    func testPresentListMarsRoverPhotos() {
+        //
+        // Given
+        let viewControllerSpy = MarsRoverDisplayLogicSpy()
+        let response = MarsRover.ListMarsRoverPhotos.Response(photosInfo: nil, isError: false, errorMessage: nil)
+        sut.viewController = viewControllerSpy
+
+        //
+        // When
+        sut.presentListMarsRoverPhotos(response: response)
+
+        //
+        // Then
+        XCTAssert(viewControllerSpy.displayMarsPhotosCalled,
+                  "displayMarsPhotosCalled should be called righ after calling presentListMarsRoverPhotos")
+    }
+
+    func testPresentPaginateMarsRoverPhotos() {
+        //
+        // Given
+        let viewControllerSpy = MarsRoverDisplayLogicSpy()
+        let response = MarsRover.PaginateMarsRoverPhotos.Response(photosInfo: nil, isError: false, errorMessage: nil)
+        sut.viewController = viewControllerSpy
+
+        //
+        // When
+        sut.presentPaginateMarsRoverPhotos(response: response)
+
+        //
+        // Then
+        XCTAssert(viewControllerSpy.displayMarsPhotosPaginationCalled,
+                  "displayMarsPhotosCalled should be called righ after calling presentPaginateMarsRoverPhotos")
+    }
+
+    func testMarsRoverPhotoViewModel() {
+        //
+        // Given
+        let imageSource = "www.image.com.br"
+        let photoInfo = RoverPhotoInfo(camera: nil, imageSource: imageSource)
+
+        //
+        // When
+        let viewModel = sut.marsRoverPhotoViewModel(from: [photoInfo])
+
+        //
+        // Then
+        XCTAssert(viewModel.marsRoverPhotos[0].photosUrl.absoluteString == imageSource,
+                  "ViewModel URL should be the same address passes as imageSource in photoInfo")
+    }
+
+    func testPresentListMarsRoverPhotosErrorPresentMessage() {
+        //
+        // Given
+        let viewControllerSpy = MarsRoverDisplayLogicSpy()
+        let response = MarsRover.ListMarsRoverPhotos.Response(photosInfo: nil, isError: true, errorMessage: nil)
+        sut.viewController = viewControllerSpy
+
+        //
+        // When
+        sut.presentListMarsRoverPhotos(response: response)
+
+        //
+        // Then
+        XCTAssertFalse(viewControllerSpy.displayMarsPhotosCalled,
+                       "displayMarsPhotosCalled should be called righ after calling presentListMarsRoverPhotos")
+    }
+
+    func testPresentPaginateMarsRoverPhotosErrorPresentMessage() {
+        //
+        // Given
+        let viewControllerSpy = MarsRoverDisplayLogicSpy()
+        let response = MarsRover.PaginateMarsRoverPhotos.Response(photosInfo: nil, isError: true, errorMessage: nil)
+        sut.viewController = viewControllerSpy
+
+        //
+        // When
+        sut.presentPaginateMarsRoverPhotos(response: response)
+
+        //
+        // Then
+        XCTAssertFalse(viewControllerSpy.displayMarsPhotosPaginationCalled,
+                       "displayMarsPhotosCalled should be called righ after calling presentPaginateMarsRoverPhotos")
+    }
+}

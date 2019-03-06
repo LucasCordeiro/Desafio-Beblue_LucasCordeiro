@@ -15,6 +15,7 @@ import UIKit
 protocol MarsRoverPresentationLogic {
     func presentListMarsRoverPhotos(response: MarsRover.ListMarsRoverPhotos.Response)
     func presentPaginateMarsRoverPhotos(response: MarsRover.PaginateMarsRoverPhotos.Response)
+    func presentError(message: String)
 
 }
 
@@ -25,11 +26,12 @@ class MarsRoverPresenter: MarsRoverPresentationLogic {
     weak var viewController: MarsRoverDisplayLogic?
 
     //
-    // MARK: - Present Lists -
+    // MARK: - Present Methods -
     func presentListMarsRoverPhotos(response: MarsRover.ListMarsRoverPhotos.Response) {
 
         if response.isError {
-
+            presentError(message: response.errorMessage ??
+                "Error while listing photos. Try again later.")
         } else {
             let marsRoverPhotoVM = marsRoverPhotoViewModel(from: response.photosInfo)
             viewController?.displayMarsPhotos(viewModel: marsRoverPhotoVM)
@@ -39,15 +41,26 @@ class MarsRoverPresenter: MarsRoverPresentationLogic {
     func presentPaginateMarsRoverPhotos(response: MarsRover.PaginateMarsRoverPhotos.Response) {
 
         if response.isError {
-
+            presentError(message: response.errorMessage ??
+                "Error while loading photos. Try again later.")
         } else {
             let marsRoverPhotoVM = marsRoverPhotoViewModel(from: response.photosInfo)
             viewController?.displayMarsPhotosPagination(viewModel: marsRoverPhotoVM)
         }
     }
 
+    func presentError(message: String) {
+        viewController?.displayError(message: message)
+    }
+
     //
     // MARK: - Auxiliar Methods -
+
+    /// Create a viewModel setting phoros URL
+    /// from an array of RoverPhotoInfo
+    ///
+    /// - Parameter photosInfo: Photos indo to populate viewModel
+    /// - Returns: View Model with photos URL
     func marsRoverPhotoViewModel(from photosInfo: [RoverPhotoInfo]?) -> MarsRover.ListMarsRoverPhotos.ViewModel {
         var marsRoverPhotos: [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto] = []
 

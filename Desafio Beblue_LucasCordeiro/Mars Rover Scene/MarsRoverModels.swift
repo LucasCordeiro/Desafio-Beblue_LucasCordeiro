@@ -13,7 +13,6 @@
 import UIKit
 
 enum MarsRover {
-    // MARK: Use cases
 
     enum ListMarsRoverPhotos {
 

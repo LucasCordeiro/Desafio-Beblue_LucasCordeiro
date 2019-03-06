@@ -27,19 +27,18 @@ class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
     //
     // MARK: - Scene Properties -
     var presenter: MarsRoverPresentationLogic?
-    var worker: MarsRoverWorker?
+    var worker: MarsRoverWorker = MarsRoverWorker()
     var selectedRoverPhotoInfo: RoverPhotoInfo?
     var roverPhotosInfo: [RoverPhotoInfo] = []
 
     //
-    // MARK: - Local Properties -
-    private var lastDate: Date = Date()
-    private var lastFilter: RoverPhotosFilter?
+    // MARK: - Public Properties -
+    var lastDate: Date = Date()
+    var lastFilter: RoverPhotosFilter?
 
     //
     // MARK: - Mars Rover Methods -
     func listMarsRoverPhotos(request: MarsRover.ListMarsRoverPhotos.Request) {
-        worker = MarsRoverWorker()
         if let date = request.date {
             lastDate = date
         } else {
@@ -48,7 +47,7 @@ class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
         lastFilter = request.filter
 
         let dateString = lastDate.stringWithFormat(dateFormat: "yyyy-MM-dd")
-        worker?.listMarsRoverPhotos(filter: request.filter.stringValue(),
+        worker.listMarsRoverPhotos(filter: request.filter.stringValue(),
                                     date: dateString,
                                     completion: { [weak self] (photosInfo, isError, errorMessage)  in
             let response =  MarsRover.ListMarsRoverPhotos.Response(photosInfo: photosInfo,
@@ -60,7 +59,6 @@ class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
     }
 
     func paginateMarsRoverPhotos(request: MarsRover.PaginateMarsRoverPhotos.Request?) {
-        worker = MarsRoverWorker()
         lastDate = lastDate.dayBefore
         let dateString = lastDate.stringWithFormat(dateFormat: "yyyy-MM-dd")
 
@@ -69,7 +67,7 @@ class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
             return
         }
 
-        worker?.listMarsRoverPhotos(filter: lastFilter.stringValue(),
+        worker.listMarsRoverPhotos(filter: lastFilter.stringValue(),
                                     date: dateString,
                                     completion: { [weak self] (photosInfo, isError, errorMessage)  in
             let response =  MarsRover.PaginateMarsRoverPhotos.Response(photosInfo: photosInfo,
@@ -81,9 +79,11 @@ class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
     }
 
     func selectPhotoInfo(at indexPath: IndexPath) {
-        let index = indexPath.row
+        let index = indexPath.item
         if index <  roverPhotosInfo.count {
             selectedRoverPhotoInfo =  roverPhotosInfo[index]
+        } else {
+            presenter?.presentError(message: "Error loading photo's info")
         }
     }
 }

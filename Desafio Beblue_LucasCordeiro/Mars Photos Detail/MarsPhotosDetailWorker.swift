@@ -12,7 +12,4 @@
 
 import UIKit
 
-class MarsPhotosDetailWorker {
-    func doSomeWork() {
-    }
-}
+class MarsPhotosDetailWorker {}

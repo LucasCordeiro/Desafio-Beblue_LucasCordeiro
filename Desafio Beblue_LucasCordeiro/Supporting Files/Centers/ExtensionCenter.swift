@@ -12,13 +12,6 @@ import Lottie
 
 extension Date {
 
-    static func date(fromString: String, withFormat format: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-
-        return dateFormatter.date(from: fromString)
-    }
-
     static var yesterday: Date {
         return Calendar.current.date(byAdding: .day, value: -1, to: Date().noon)!
     }
@@ -38,18 +31,37 @@ extension Date {
     var noon: Date {
         return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
     }
+
     var month: Int {
         return Calendar.current.component(.month, from: self)
     }
+
     var isLastDayOfMonth: Bool {
         return dayAfter.month != month
     }
 
+    /// Get string from a date with a 'dateFormat'
+    ///
+    /// - Parameter dateFormat: of date
+    /// - Returns: String value of date
     func stringWithFormat(dateFormat: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
 
         return dateFormatter.string(from: self)
+    }
+
+    /// Init a date from 'fromString' value with a 'format'
+    ///
+    /// - Parameters:
+    ///   - fromString: to convert into a date
+    ///   - format: of the date
+    /// - Returns: Date if possible to get from 'fromString' or nil
+    static func date(fromString: String, withFormat format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+
+        return dateFormatter.date(from: fromString)
     }
 }
 
@@ -64,6 +76,9 @@ extension UIView {
 }
 
 extension UICollectionViewCell {
+    /// Register Cell to a collection view
+    ///
+    /// - Parameter collection: to regiter cell
     static func register(inCollection collection: UICollectionView) {
         let cellClasName = self.classNameDescription()
         let nib = UINib(nibName: cellClasName, bundle: nil)
@@ -73,6 +88,9 @@ extension UICollectionViewCell {
 }
 
 extension UITableViewCell {
+    /// Register Cell to a table view
+    ///
+    /// - Parameter table: to regiter cell
     static func register(inTable table: UITableView) {
         let cellClasName = self.classNameDescription()
         let nib = UINib(nibName: cellClasName, bundle: nil)
@@ -92,6 +110,9 @@ extension UIViewController {
 }
 
 extension LOTAnimationView {
+    /// Unhides animating superview's animation and play it
+    ///
+    /// - Parameter loopAnimation: Activate animation loop
     func showAndPlay(loopAnimation: Bool) {
 
         self.loopAnimation = loopAnimation
@@ -109,6 +130,7 @@ extension LOTAnimationView {
         }
     }
 
+    /// Hides animating superview's animation and stop it
     func hideAndStop() {
         UIView.animate(withDuration: 0.5, animations: {
             self.alpha = 0.0

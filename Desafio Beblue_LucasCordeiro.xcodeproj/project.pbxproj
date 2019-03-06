@@ -11,7 +11,6 @@
 		AE3FD689222C7C9B0037C51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD688222C7C9B0037C51C /* AppDelegate.swift */; };
 		AE3FD690222C7C9C0037C51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3FD68F222C7C9C0037C51C /* Assets.xcassets */; };
 		AE3FD693222C7C9C0037C51C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3FD691222C7C9C0037C51C /* LaunchScreen.storyboard */; };
-		AE3FD69E222C7C9C0037C51C /* Desafio_Beblue_LucasCordeiroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD69D222C7C9C0037C51C /* Desafio_Beblue_LucasCordeiroTests.swift */; };
 		AE3FD6BE222C83CA0037C51C /* MarsRoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD6B8222C83CA0037C51C /* MarsRoverPresenter.swift */; };
 		AE3FD6BF222C83CA0037C51C /* MarsRoverWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD6B9222C83CA0037C51C /* MarsRoverWorker.swift */; };
 		AE3FD6C0222C83CA0037C51C /* MarsRoverRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FD6BA222C83CA0037C51C /* MarsRoverRouter.swift */; };
@@ -29,6 +28,13 @@
 		AE7A1E3D222DF20900D110E7 /* MarsPhotosDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E37222DF20900D110E7 /* MarsPhotosDetailViewController.swift */; };
 		AE7A1E3E222DF20900D110E7 /* MarsPhotosDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E38222DF20900D110E7 /* MarsPhotosDetailInteractor.swift */; };
 		AE7A1E40222DF30B00D110E7 /* MarsPhotosDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A1E3F222DF30B00D110E7 /* MarsPhotosDetail.storyboard */; };
+		AE7A1E42222F043600D110E7 /* MarsRoverViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E41222F043600D110E7 /* MarsRoverViewControllerTest.swift */; };
+		AE7A1E45222F213D00D110E7 /* MarsRoverInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E44222F213D00D110E7 /* MarsRoverInteractorTest.swift */; };
+		AE7A1E47222F214B00D110E7 /* MarsRoverPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E46222F214B00D110E7 /* MarsRoverPresenterTest.swift */; };
+		AE7A1E4A222F21C000D110E7 /* MarsRoverWorkerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E49222F21C000D110E7 /* MarsRoverWorkerTest.swift */; };
+		AE7A1E4C222F21E900D110E7 /* MarsPhotosDetailViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E4B222F21E900D110E7 /* MarsPhotosDetailViewControllerTest.swift */; };
+		AE7A1E4E222F21F400D110E7 /* MarsPhotosDetailInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E4D222F21F400D110E7 /* MarsPhotosDetailInteractorTest.swift */; };
+		AE7A1E50222F21FF00D110E7 /* MarsPhotosPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E4F222F21FF00D110E7 /* MarsPhotosPresenterTest.swift */; };
 		AE9EF711222C9AF900B2BD21 /* APIRouterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF710222C9AF900B2BD21 /* APIRouterWorker.swift */; };
 		AE9EF713222C9B0800B2BD21 /* APIClientWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF712222C9B0800B2BD21 /* APIClientWorker.swift */; };
 		AE9EF716222C9CAA00B2BD21 /* RoverPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF715222C9CAA00B2BD21 /* RoverPhoto.swift */; };
@@ -55,7 +61,6 @@
 		AE3FD692222C7C9C0037C51C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE3FD694222C7C9C0037C51C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE3FD699222C7C9C0037C51C /* Desafio Beblue_LucasCordeiroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Desafio Beblue_LucasCordeiroTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE3FD69D222C7C9C0037C51C /* Desafio_Beblue_LucasCordeiroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Desafio_Beblue_LucasCordeiroTests.swift; sourceTree = "<group>"; };
 		AE3FD69F222C7C9C0037C51C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE3FD6B8222C83CA0037C51C /* MarsRoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverPresenter.swift; sourceTree = "<group>"; };
 		AE3FD6B9222C83CA0037C51C /* MarsRoverWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverWorker.swift; sourceTree = "<group>"; };
@@ -74,6 +79,13 @@
 		AE7A1E37222DF20900D110E7 /* MarsPhotosDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailViewController.swift; sourceTree = "<group>"; };
 		AE7A1E38222DF20900D110E7 /* MarsPhotosDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailInteractor.swift; sourceTree = "<group>"; };
 		AE7A1E3F222DF30B00D110E7 /* MarsPhotosDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarsPhotosDetail.storyboard; sourceTree = "<group>"; };
+		AE7A1E41222F043600D110E7 /* MarsRoverViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverViewControllerTest.swift; sourceTree = "<group>"; };
+		AE7A1E44222F213D00D110E7 /* MarsRoverInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverInteractorTest.swift; sourceTree = "<group>"; };
+		AE7A1E46222F214B00D110E7 /* MarsRoverPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverPresenterTest.swift; sourceTree = "<group>"; };
+		AE7A1E49222F21C000D110E7 /* MarsRoverWorkerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverWorkerTest.swift; sourceTree = "<group>"; };
+		AE7A1E4B222F21E900D110E7 /* MarsPhotosDetailViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailViewControllerTest.swift; sourceTree = "<group>"; };
+		AE7A1E4D222F21F400D110E7 /* MarsPhotosDetailInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailInteractorTest.swift; sourceTree = "<group>"; };
+		AE7A1E4F222F21FF00D110E7 /* MarsPhotosPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosPresenterTest.swift; sourceTree = "<group>"; };
 		AE9EF710222C9AF900B2BD21 /* APIRouterWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouterWorker.swift; sourceTree = "<group>"; };
 		AE9EF712222C9B0800B2BD21 /* APIClientWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientWorker.swift; sourceTree = "<group>"; };
 		AE9EF715222C9CAA00B2BD21 /* RoverPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhoto.swift; sourceTree = "<group>"; };
@@ -147,7 +159,8 @@
 		AE3FD69C222C7C9C0037C51C /* Desafio Beblue_LucasCordeiroTests */ = {
 			isa = PBXGroup;
 			children = (
-				AE3FD69D222C7C9C0037C51C /* Desafio_Beblue_LucasCordeiroTests.swift */,
+				AE7A1E43222F043A00D110E7 /* Mars Rover Scene */,
+				AE7A1E48222F217700D110E7 /* Mars Photos Detail Scene */,
 				AE3FD69F222C7C9C0037C51C /* Info.plist */,
 			);
 			path = "Desafio Beblue_LucasCordeiroTests";
@@ -209,6 +222,27 @@
 				AE7A1E35222DF20900D110E7 /* MarsPhotosDetailRouter.swift */,
 			);
 			path = "Mars Photos Detail";
+			sourceTree = "<group>";
+		};
+		AE7A1E43222F043A00D110E7 /* Mars Rover Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AE7A1E41222F043600D110E7 /* MarsRoverViewControllerTest.swift */,
+				AE7A1E44222F213D00D110E7 /* MarsRoverInteractorTest.swift */,
+				AE7A1E46222F214B00D110E7 /* MarsRoverPresenterTest.swift */,
+				AE7A1E49222F21C000D110E7 /* MarsRoverWorkerTest.swift */,
+			);
+			path = "Mars Rover Scene";
+			sourceTree = "<group>";
+		};
+		AE7A1E48222F217700D110E7 /* Mars Photos Detail Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AE7A1E4B222F21E900D110E7 /* MarsPhotosDetailViewControllerTest.swift */,
+				AE7A1E4D222F21F400D110E7 /* MarsPhotosDetailInteractorTest.swift */,
+				AE7A1E4F222F21FF00D110E7 /* MarsPhotosPresenterTest.swift */,
+			);
+			path = "Mars Photos Detail Scene";
 			sourceTree = "<group>";
 		};
 		AE9EF70F222C939F00B2BD21 /* Network */ = {
@@ -303,6 +337,7 @@
 					};
 					AE3FD698222C7C9C0037C51C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = AE3FD684222C7C9B0037C51C;
 					};
 				};
@@ -450,7 +485,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE3FD69E222C7C9C0037C51C /* Desafio_Beblue_LucasCordeiroTests.swift in Sources */,
+				AE7A1E50222F21FF00D110E7 /* MarsPhotosPresenterTest.swift in Sources */,
+				AE7A1E47222F214B00D110E7 /* MarsRoverPresenterTest.swift in Sources */,
+				AE7A1E45222F213D00D110E7 /* MarsRoverInteractorTest.swift in Sources */,
+				AE7A1E42222F043600D110E7 /* MarsRoverViewControllerTest.swift in Sources */,
+				AE7A1E4E222F21F400D110E7 /* MarsPhotosDetailInteractorTest.swift in Sources */,
+				AE7A1E4C222F21E900D110E7 /* MarsPhotosDetailViewControllerTest.swift in Sources */,
+				AE7A1E4A222F21C000D110E7 /* MarsRoverWorkerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +676,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 925DHG9B6Q;
 				INFOPLIST_FILE = "Desafio Beblue_LucasCordeiroTests/Info.plist";
@@ -645,6 +687,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sparks.Desafio-Beblue-LucasCordeiroTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Desafio Beblue_LucasCordeiro.app/Desafio Beblue_LucasCordeiro";
@@ -656,6 +699,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 925DHG9B6Q;
 				INFOPLIST_FILE = "Desafio Beblue_LucasCordeiroTests/Info.plist";
