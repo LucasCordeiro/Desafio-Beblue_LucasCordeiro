@@ -18,12 +18,12 @@ struct ServerInfo {
 
     /// Service sever urls
     struct ServiceServer {
-        /// URL to access News API
-        static let newsApiUrl = isProduction
+        /// URL to access Nasa Photos Rover API
+        static let photosRoverApiUrl = isProduction
             ? "https://api.nasa.gov/mars-photos/api/v1/rovers/"
             : "https://testServer.com"
 
-        /// URL suffix of News API
+        /// URL suffix of Nasa API with apiKey
         static let suffixURL = "&api_key=\(marsApiKey)"
     }
 }

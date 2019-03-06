@@ -35,7 +35,6 @@
 		AE7A1E4C222F21E900D110E7 /* MarsPhotosDetailViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E4B222F21E900D110E7 /* MarsPhotosDetailViewControllerTest.swift */; };
 		AE7A1E4E222F21F400D110E7 /* MarsPhotosDetailInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E4D222F21F400D110E7 /* MarsPhotosDetailInteractorTest.swift */; };
 		AE7A1E50222F21FF00D110E7 /* MarsPhotosPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E4F222F21FF00D110E7 /* MarsPhotosPresenterTest.swift */; };
-		AE7A1E52222F220D00D110E7 /* MarsPhotosDetailWorkerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A1E51222F220D00D110E7 /* MarsPhotosDetailWorkerTest.swift */; };
 		AE9EF711222C9AF900B2BD21 /* APIRouterWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF710222C9AF900B2BD21 /* APIRouterWorker.swift */; };
 		AE9EF713222C9B0800B2BD21 /* APIClientWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF712222C9B0800B2BD21 /* APIClientWorker.swift */; };
 		AE9EF716222C9CAA00B2BD21 /* RoverPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9EF715222C9CAA00B2BD21 /* RoverPhoto.swift */; };
@@ -87,7 +86,6 @@
 		AE7A1E4B222F21E900D110E7 /* MarsPhotosDetailViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailViewControllerTest.swift; sourceTree = "<group>"; };
 		AE7A1E4D222F21F400D110E7 /* MarsPhotosDetailInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailInteractorTest.swift; sourceTree = "<group>"; };
 		AE7A1E4F222F21FF00D110E7 /* MarsPhotosPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosPresenterTest.swift; sourceTree = "<group>"; };
-		AE7A1E51222F220D00D110E7 /* MarsPhotosDetailWorkerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsPhotosDetailWorkerTest.swift; sourceTree = "<group>"; };
 		AE9EF710222C9AF900B2BD21 /* APIRouterWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouterWorker.swift; sourceTree = "<group>"; };
 		AE9EF712222C9B0800B2BD21 /* APIClientWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientWorker.swift; sourceTree = "<group>"; };
 		AE9EF715222C9CAA00B2BD21 /* RoverPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhoto.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 				AE7A1E4B222F21E900D110E7 /* MarsPhotosDetailViewControllerTest.swift */,
 				AE7A1E4D222F21F400D110E7 /* MarsPhotosDetailInteractorTest.swift */,
 				AE7A1E4F222F21FF00D110E7 /* MarsPhotosPresenterTest.swift */,
-				AE7A1E51222F220D00D110E7 /* MarsPhotosDetailWorkerTest.swift */,
 			);
 			path = "Mars Photos Detail Scene";
 			sourceTree = "<group>";
@@ -488,7 +485,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE7A1E52222F220D00D110E7 /* MarsPhotosDetailWorkerTest.swift in Sources */,
 				AE7A1E50222F21FF00D110E7 /* MarsPhotosPresenterTest.swift in Sources */,
 				AE7A1E47222F214B00D110E7 /* MarsRoverPresenterTest.swift in Sources */,
 				AE7A1E45222F213D00D110E7 /* MarsRoverInteractorTest.swift in Sources */,

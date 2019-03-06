@@ -7,27 +7,82 @@
 //
 
 import XCTest
+@testable import Desafio_Beblue_LucasCordeiro
 
 class MarsPhotosDetailInteractorTest: XCTestCase {
 
+    //
+    // MARK: - SUT -
+    var sut: MarsPhotosDetailInteractor!
+
+    //
+    // MARK: - Test Lifecycle -
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        setupMarsPhotosDetailInteractor()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    //
+    // MARK: - Configure Test -
+    func setupMarsPhotosDetailInteractor() {
+        sut = MarsPhotosDetailInteractor()
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    //
+    // MARK: - Spys -
+    class MarsPhotosDetailPresentationLogicSpy: MarsPhotosDetailPresentationLogic {
+
+        var presentPhotosInfoCalled = false
+        var presentNewButtonNameCalled = false
+
+        func presentPhotosInfo(response: MarsPhotosDetail.LoadPhotosInfo.Response) {
+            presentPhotosInfoCalled = true
+        }
+
+        func presentNewButtonName(response: MarsPhotosDetail.ChangeButtonName.Response) {
+            presentNewButtonNameCalled = true
         }
     }
 
+    //
+    // MARK: - Test Methods -
+    func testCallingPresentPhotosInfo() {
+        //
+        // Given
+        let presenterSpy = MarsPhotosDetailPresentationLogicSpy()
+        sut.presenter = presenterSpy
+        sut.roverPhotoInfo = RoverPhotoInfo(camera: nil, imageSource: nil)
+        let request = MarsPhotosDetail.LoadPhotosInfo.Request()
+
+        //
+        // When
+        sut.loadPhotosInfo(request: request)
+
+        //
+        // Then
+        XCTAssertTrue(presenterSpy.presentPhotosInfoCalled,
+                      "presentPhotosInfoCalled should be called right after calling loadPhotosInfo")
+    }
+
+    func testCallingChangeButtonNameFrom() {
+        //
+        // Given
+        let presenterSpy = MarsPhotosDetailPresentationLogicSpy()
+        sut.presenter = presenterSpy
+        sut.roverPhotoInfo = RoverPhotoInfo(camera: nil, imageSource: nil)
+        let request = MarsPhotosDetail.ChangeButtonName.Request(currentButtonName: "")
+
+        //
+        // When
+        sut.changeButtonName(request: request)
+
+        //
+        // Then
+        XCTAssertTrue(presenterSpy.presentNewButtonNameCalled,
+                      "presentNewButtonNameCalled should be called right after calling loadPhotosInfo")
+    }
 }

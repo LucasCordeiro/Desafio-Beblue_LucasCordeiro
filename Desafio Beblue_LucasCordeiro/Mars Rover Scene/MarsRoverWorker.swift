@@ -15,9 +15,19 @@ import UIKit
 typealias ListMarsRoverPhotosResponseHandler = (
     _ photosInfo: [RoverPhotoInfo]?,
     _ isError: Bool,
-    _ message: String?) -> Void
+    _ errorMessage: String?) -> Void
 
 class MarsRoverWorker {
+
+    //
+    // MARK: - Mars Rover Methods -
+
+    /// List Mars Rover Photos from 'filter' in a 'date'
+    ///
+    /// - Parameters:
+    ///   - filter: To be applyed on listing
+    ///   - date: to be listed
+    ///   - completion: with photos info, isError verification and errorMessage
     func listMarsRoverPhotos(filter: String,
                              date: String,
                              completion: @escaping(ListMarsRoverPhotosResponseHandler)) {

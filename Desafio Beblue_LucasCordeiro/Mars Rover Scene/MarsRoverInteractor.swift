@@ -32,7 +32,7 @@ class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
     var roverPhotosInfo: [RoverPhotoInfo] = []
 
     //
-    // MARK: - Local Properties -
+    // MARK: - Public Properties -
     var lastDate: Date = Date()
     var lastFilter: RoverPhotosFilter?
 
@@ -82,6 +82,8 @@ class MarsRoverInteractor: MarsRoverBusinessLogic, MarsRoverDataStore {
         let index = indexPath.item
         if index <  roverPhotosInfo.count {
             selectedRoverPhotoInfo =  roverPhotosInfo[index]
+        } else {
+            presenter?.presentError(message: "Error loading photo's info")
         }
     }
 }

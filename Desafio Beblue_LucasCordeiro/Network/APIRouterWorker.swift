@@ -11,10 +11,12 @@ import Alamofire
 /// API that will provide requests informations
 enum APIRouterWorker: URLRequestConvertible {
 
-    // MARK: - Comunication
+    //
+    // MARK: - Listing -
     case listMarsRoverPhotos(filter: String, date: String)
 
-    // MARK: - HTTPMethod
+    //
+    // MARK: - HTTPMethod -
     private var method: HTTPMethod {
         switch self {
         case .listMarsRoverPhotos:
@@ -22,7 +24,8 @@ enum APIRouterWorker: URLRequestConvertible {
         }
     }
 
-    // MARK: - Path
+    //
+    // MARK: - Path -
     private var path: String {
         switch self {
         case .listMarsRoverPhotos(let filter, let date):
@@ -31,7 +34,8 @@ enum APIRouterWorker: URLRequestConvertible {
         }
     }
 
-    // MARK: - Parameters
+    //
+    // MARK: - Parameters -
     private var parameters: Parameters? {
         switch self {
         case .listMarsRoverPhotos:
@@ -39,26 +43,32 @@ enum APIRouterWorker: URLRequestConvertible {
         }
     }
 
-    // MARK: - URLRequestConvertible
+    //
+    // MARK: - URLRequestConvertible -
     func asURLRequest() throws -> URLRequest {
 
         var url: URL
 
+        //
+        // Path
         switch self {
         case .listMarsRoverPhotos:
-            let urlString = ServerInfo.ServiceServer.newsApiUrl + path
+            let urlString = ServerInfo.ServiceServer.photosRoverApiUrl + path
             url = try urlString.asURL()
         }
 
         var urlRequest = URLRequest(url: url)
 
+        //
         // HTTP Method
         urlRequest.httpMethod = method.rawValue
 
+        //
         // Common Headers
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
 
+        //
         // Parameters
         if let parameters = parameters {
             do {

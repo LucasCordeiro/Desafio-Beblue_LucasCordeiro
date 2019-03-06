@@ -16,6 +16,7 @@ import Lottie
 protocol MarsRoverDisplayLogic: class {
     func displayMarsPhotos(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel)
     func displayMarsPhotosPagination(viewModel: MarsRover.ListMarsRoverPhotos.ViewModel)
+    func displayError(message: String)
 }
 
 class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
@@ -32,8 +33,11 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
     @IBOutlet weak var filterSegmentedControllOutlet: UISegmentedControl!
 
     //
-    // MARK: - Local Properties -
+    // MARK: - Public Properties -
     var marsRoverPhotos: [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto] = []
+
+    //
+    // MARK: - Local Properties -
     private let minNumberOfPhotos = 20
 
     //
@@ -59,6 +63,10 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
         setup()
     }
 
+    /// Method to create 'MarsRoverViewController' from storyboard
+    /// It should have all information about its storyboard
+    ///
+    /// - Returns: MarsRoverViewController initialized
     static func storyboardInit() -> MarsRoverViewController {
         let storyboard = UIStoryboard(name: "MarsRover", bundle: nil)
         guard let viewController =
@@ -126,6 +134,10 @@ class MarsRoverViewController: UIViewController, MarsRoverDisplayLogic {
             mainLoadingViewOutlet.hideAndStop()
         }
         collectionView.reloadData()
+    }
+
+    func displayError(message: String) {
+        router?.displayError(message: message)
     }
 
     //

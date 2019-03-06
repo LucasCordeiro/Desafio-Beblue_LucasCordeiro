@@ -29,8 +29,8 @@ class MarsPhotosDetailInteractor: MarsPhotosDetailBusinessLogic, MarsPhotosDetai
     var worker: MarsPhotosDetailWorker?
     var roverPhotoInfo: RoverPhotoInfo!
 
-    // MARK: Do something
-
+    //
+    // MARK: - Photos Info Methods -
     func loadPhotosInfo(request: MarsPhotosDetail.LoadPhotosInfo.Request) {
         let response = MarsPhotosDetail.LoadPhotosInfo.Response(photoInfo: roverPhotoInfo)
         presenter?.presentPhotosInfo(response: response)

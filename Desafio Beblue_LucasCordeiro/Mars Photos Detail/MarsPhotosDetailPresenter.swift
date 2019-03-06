@@ -18,10 +18,13 @@ protocol MarsPhotosDetailPresentationLogic {
 }
 
 class MarsPhotosDetailPresenter: MarsPhotosDetailPresentationLogic {
+
+    //
+    // MARK: - Scene Properties -
     weak var viewController: MarsPhotosDetailDisplayLogic?
 
-    // MARK: Do something
-
+    //
+    // MARK: - Present Methods -
     func presentPhotosInfo(response: MarsPhotosDetail.LoadPhotosInfo.Response) {
         guard let photoStringURL = response.photoInfo.imageSource,
             let photoURL = URL(string: photoStringURL) else {

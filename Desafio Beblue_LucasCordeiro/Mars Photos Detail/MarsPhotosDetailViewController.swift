@@ -138,11 +138,11 @@ class MarsPhotosDetailViewController: UIViewController, MarsPhotosDetailDisplayL
     private func playImageLoadingView() {
         imageLoadingView.loopAnimation = true
         imageLoadingView.isHidden = false
-        imageViewOutlet.startAnimating()
+        imageLoadingView.play()
     }
 
     private func stopImageLoadingView() {
         imageLoadingView.isHidden = true
-        imageViewOutlet.stopAnimating()
+        imageLoadingView.stop()
     }
 }

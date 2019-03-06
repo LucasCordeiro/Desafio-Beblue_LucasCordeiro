@@ -157,6 +157,7 @@ class MarsRoverViewControllerTest: XCTestCase {
     }
 
     func testNumberOfItensInAnySectionShouldEqualNumberOfMarsRoverPhotos() {
+        //
         // Given
         loadView()
         let collectionView = sut.collectionView
@@ -164,30 +165,36 @@ class MarsRoverViewControllerTest: XCTestCase {
             photosUrl: URL(fileURLWithPath: ""))]
         sut.marsRoverPhotos = marsRoverPhotos
 
+        //
         // When
         let numberOfRows = sut.collectionView(collectionView!, numberOfItemsInSection: 0)
 
+        //
         // Then
         XCTAssertEqual(numberOfRows, marsRoverPhotos.count,
                        "The number of table view rows should equal the number of photos to display")
     }
 
     func testNumberOfItensInAnySectionShouldEqualNumberOfMarsRoverPhotosAfterDisplayMarsPhotos() {
+        //
         // Given
         loadView()
         let marsRoverPhotos = [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto(
             photosUrl: URL(fileURLWithPath: ""))]
         let viewModel = MarsRover.ListMarsRoverPhotos.ViewModel(marsRoverPhotos: marsRoverPhotos)
 
+        //
         // When
         sut.displayMarsPhotos(viewModel: viewModel)
 
+        //
         // Then
         XCTAssertEqual(sut.marsRoverPhotos.count, marsRoverPhotos.count,
                        "The number of mars photos in sut should equal the number of photos to display")
     }
 
     func testPaginateCallAfterDisplayLessThan20MarsPhotos() {
+        //
         // Given
         let marsRoverBusinessLogicSpy = MarsRoverBusinessLogicSpy()
         sut.interactor = marsRoverBusinessLogicSpy
@@ -196,15 +203,18 @@ class MarsRoverViewControllerTest: XCTestCase {
             photosUrl: URL(fileURLWithPath: ""))]
         let viewModel = MarsRover.ListMarsRoverPhotos.ViewModel(marsRoverPhotos: marsRoverPhotos)
 
+        //
         // When
         sut.displayMarsPhotos(viewModel: viewModel)
 
+        //
         // Then
         XCTAssertTrue(marsRoverBusinessLogicSpy.paginateMarsRoverPhotosCalled,
                       "Paginate method should be call if there are less than 20 objects")
     }
 
     func testPaginateNotCallAfterDisplayMoreThan20MarsPhotos() {
+        //
         // Given
         let marsRoverBusinessLogicSpy = MarsRoverBusinessLogicSpy()
         sut.interactor = marsRoverBusinessLogicSpy
@@ -217,30 +227,37 @@ class MarsRoverViewControllerTest: XCTestCase {
                                marsPhoto, marsPhoto, marsPhoto, marsPhoto, marsPhoto, marsPhoto]
         let viewModel = MarsRover.ListMarsRoverPhotos.ViewModel(marsRoverPhotos: marsRoverPhotos)
 
+        //
         // When
         sut.displayMarsPhotos(viewModel: viewModel)
 
+        //
         // Then
         XCTAssertFalse(marsRoverBusinessLogicSpy.paginateMarsRoverPhotosCalled,
                        "Paginate method should not be call if there are more than 20 objects")
     }
 
     func testAppendMarsRoverPhotosAfterDisplayMarsPhotosPaginate() {
+        //
         // Given
         loadView()
         let marsRoverPhotos = [MarsRover.ListMarsRoverPhotos.ViewModel.MarsRoverPhoto(
             photosUrl: URL(fileURLWithPath: ""))]
         sut.marsRoverPhotos = marsRoverPhotos
         let viewModel = MarsRover.ListMarsRoverPhotos.ViewModel(marsRoverPhotos: marsRoverPhotos)
+
+        //
         // When
         sut.displayMarsPhotosPagination(viewModel: viewModel)
 
+        //
         // Then
         XCTAssertEqual(sut.marsRoverPhotos.count, marsRoverPhotos.count * 2,
                        "The number of table view rows should equal the number of photos to display")
     }
 
     func testPaginateCallAfterPaginateLessThan20MarsPhotos() {
+        //
         // Given
         let marsRoverBusinessLogicSpy = MarsRoverBusinessLogicSpy()
         sut.interactor = marsRoverBusinessLogicSpy
@@ -249,15 +266,18 @@ class MarsRoverViewControllerTest: XCTestCase {
             photosUrl: URL(fileURLWithPath: ""))]
         let viewModel = MarsRover.ListMarsRoverPhotos.ViewModel(marsRoverPhotos: marsRoverPhotos)
 
+        //
         // When
         sut.displayMarsPhotosPagination(viewModel: viewModel)
 
+        //
         // Then
         XCTAssertTrue(marsRoverBusinessLogicSpy.paginateMarsRoverPhotosCalled,
                       "Paginate method should be call if there are less than 20 objects")
     }
 
     func testPaginateNotCallAfterPaginateMoreThan20MarsPhotos() {
+        //
         // Given
         let marsRoverBusinessLogicSpy = MarsRoverBusinessLogicSpy()
         sut.interactor = marsRoverBusinessLogicSpy
@@ -270,9 +290,11 @@ class MarsRoverViewControllerTest: XCTestCase {
                                marsPhoto, marsPhoto, marsPhoto, marsPhoto, marsPhoto, marsPhoto]
         let viewModel = MarsRover.ListMarsRoverPhotos.ViewModel(marsRoverPhotos: marsRoverPhotos)
 
+        //
         // When
         sut.displayMarsPhotosPagination(viewModel: viewModel)
 
+        //
         // Then
         XCTAssertFalse(marsRoverBusinessLogicSpy.paginateMarsRoverPhotosCalled,
                        "Paginate method should not be call if there are more than 20 objects")

@@ -13,7 +13,6 @@
 import UIKit
 
 @objc protocol MarsPhotosDetailRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
 protocol MarsPhotosDetailDataPassing {
@@ -23,37 +22,4 @@ protocol MarsPhotosDetailDataPassing {
 class MarsPhotosDetailRouter: NSObject, MarsPhotosDetailRoutingLogic, MarsPhotosDetailDataPassing {
     weak var viewController: MarsPhotosDetailViewController?
     var dataStore: MarsPhotosDetailDataStore?
-
-    // MARK: Routing
-
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC =
-    // storyboard.instantiateViewController(withIdentifier: "SomewhereViewController")
-    // as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
-
-    // MARK: Navigation
-
-    //func navigateToSomewhere(source: MarsPhotosDetailViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
-
-    // MARK: Passing data
-
-    //func passDataToSomewhere(source: MarsPhotosDetailDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
 }

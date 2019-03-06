@@ -14,6 +14,7 @@ import UIKit
 
 @objc protocol MarsRoverRoutingLogic {
     func routeToPhotosDetail(segue: UIStoryboardSegue?)
+    func displayError(message: String)
 }
 
 protocol MarsRoverDataPassing {
@@ -78,5 +79,13 @@ class MarsRoverRouter: NSObject, MarsRoverRoutingLogic, MarsRoverDataPassing {
     // MARK: - Error Handle -
     private func fatalErrorPhotosDetailNavigation() {
         assertionFailure("Error while navigating to MarsPhotosDetailViewController")
+    }
+
+    func displayError(message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alertController.addAction(okayAction)
+
+        viewController?.present(alertController, animated: true, completion: nil)
     }
 }
